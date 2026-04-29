@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1405.775 1128" width="1405.775" height="1128" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<rect x="40" y="40" width="1202.1000000000001" height="112" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="40" y="40" width="1202.1000000000001" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="52" y="54" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">INPUT LAYER — Whatever ASHA Has</text>
+<rect x="173.8499999999999" y="196" width="1182.9875000000002" height="268" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="173.8499999999999" y="196" width="1182.9875000000002" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="185.8499999999999" y="210" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">MODEL LAYER — Frugal AI plus LLM plus T2D</text>
+<rect x="209.60000000000014" y="508" width="945.8999999999999" height="112" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="209.60000000000014" y="508" width="945.8999999999999" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="221.60000000000014" y="522" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">OUTPUT LAYER</text>
+<rect x="191.72500000000014" y="664" width="1154.05" height="424" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+<rect x="191.72500000000014" y="664" width="1154.05" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+<text x="203.72500000000014" y="678" dy="0.35em" font-size="12" font-weight="600" fill="var(--_text-sec)">FLYWHEEL — Federated Learning</text>
+<polyline points="217.42499999999995,132 217.42499999999995,270 417.29999999999995,270" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="520.0999999999999,132 520.0999999999999,270 417.29999999999995,270" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="829.9250000000001,132 829.9250000000001,270 735.3,270" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1118.3000000000002,132 1118.3000000000002,270 735.3,270" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="576.3,288 576.3,426 629.4125000000001,426" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1172.2625,288 1172.2625,426 868.7625,426" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="749.0875000000001,444 749.0875000000001,464 362.0000000000001,464 362.0000000000001,564" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="749.0875000000001,444 749.0875000000001,464 657.5250000000001,464 657.5250000000001,564" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="749.0875000000001,444 749.0875000000001,464 978.075,464 978.075,564" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="362.0000000000001,600 362.0000000000001,720" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="362.0000000000001,756 362.0000000000001,876" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="362.0000000000001,912 362.0000000000001,1050 699.5250000000001,1050" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="847.8000000000001,1032 847.8000000000001,1012 1175.5,1012 1175.5,426 868.7625,426" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="61.99999999999994" y="96" width="310.85" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="396.8499999999999" y="96" width="246.50000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="667.35" y="96" width="325.15000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1016.5000000000002" y="96" width="203.60000000000002" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="417.29999999999995" y="252" width="318" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="629.4125000000001" y="408" width="239.35000000000002" height="36" rx="0" ry="0" fill="#7aa2f7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1009.6875" y="252" width="325.15000000000003" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="231.6000000000001" y="564" width="260.8" height="36" rx="0" ry="0" fill="#9ece6a" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="516.4000000000001" y="564" width="282.25" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="822.6500000000001" y="564" width="310.85" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="213.7250000000001" y="720" width="296.55" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="213.7250000000001" y="876" width="296.55" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="699.5250000000001" y="1032" width="296.55" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="217.42499999999995" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Blood report — HbA1c, glucose, p-tau217</text>
+<text x="520.0999999999999" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Voice in local Indian language</text>
+<text x="829.9250000000001" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">5-min literacy-independent cognitive test</text>
+<text x="1118.3000000000002" y="114" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Family-reported symptoms</text>
+<text x="576.3" y="270" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Multilingual LLM — scores voice and text</text>
+<text x="749.0875000000001" y="426" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">Missing-modality Fusion Model</text>
+<text x="1172.2625" y="270" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">T2D Risk Pathway — elevated if HbA1c high</text>
+<text x="362.0000000000001" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">Risk Score — Low / Medium / High</text>
+<text x="657.5250000000001" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Plain-language explanation for ASHA</text>
+<text x="978.075" y="582" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Referral decision — MBBS or Neurologist</text>
+<text x="362.0000000000001" y="738" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Each ASHA phone is a local model node</text>
+<text x="362.0000000000001" y="894" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Data stays on device — DPDP compliant</text>
+<text x="847.8000000000001" y="1050" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Model improves with every interaction</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2166.4 572" width="2166.4" height="572" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<polyline points="1122.525,456 1122.525,476 224.025,476 224.025,496" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,456 1122.525,476 658.975,476 658.975,496" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,456 1122.525,496" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,456 1122.525,476 1571.775,476 1571.775,496" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,456 1122.525,476 1967.4,476 1967.4,496" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,76 1122.525,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,152 1122.525,192" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,228 1122.525,268" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,304 1122.525,344" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1122.525,380 1122.525,420" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="884.8750000000001" y="40" width="475.3" height="36" rx="0" ry="0" fill="#9ece6a" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="934.9250000000001" y="116" width="375.20000000000005" height="36" rx="0" ry="0" fill="#73daca" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="917.0500000000001" y="192" width="410.95000000000005" height="36" rx="0" ry="0" fill="#7aa2f7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="924.2" y="268" width="396.65000000000003" height="36" rx="0" ry="0" fill="#e0af68" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="924.2" y="344" width="396.65000000000003" height="36" rx="0" ry="0" fill="#f7768e" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1035.025" y="420" width="175" height="36" rx="0" ry="0" fill="#bb9af7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="40" y="496" width="368.05" height="36" rx="0" ry="0" fill="#9ece6a" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="432.05" y="496" width="453.85" height="36" rx="0" ry="0" fill="#73daca" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="909.9000000000001" y="496" width="425.25000000000006" height="36" rx="0" ry="0" fill="#e0af68" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1359.15" y="496" width="425.25000000000006" height="36" rx="0" ry="0" fill="#ff9e64" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1808.4" y="496" width="318" height="36" rx="0" ry="0" fill="#f7768e" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="1122.525" y="58" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">5 — EXCEPTIONAL — First-of-its-kind, no comparable work exists</text>
+<text x="1122.525" y="134" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">4 — STRONG — Well above average, minor gaps only</text>
+<text x="1122.525" y="210" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">3 — ADEQUATE — Meets requirements, nothing stands out</text>
+<text x="1122.525" y="286" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">2 — WEAK — Below average, identifiable fixable gaps</text>
+<text x="1122.525" y="362" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">1 — POOR — Fails the criterion, fundamental problem</text>
+<text x="1122.525" y="438" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">Score Interpretation</text>
+<text x="224.025" y="514" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">85 to 100 — Outstanding — Lead with this option</text>
+<text x="658.975" y="514" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">70 to 84 — Strong — Credible, targeted strengthening needed</text>
+<text x="1122.525" y="514" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">55 to 69 — Moderate — Viable but needs significant work</text>
+<text x="1571.775" y="514" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">40 to 54 — Weak — Consider combining with higher scorer</text>
+<text x="1967.4" y="514" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">Below 40 — Not recommended as standalone</text>
+</svg>

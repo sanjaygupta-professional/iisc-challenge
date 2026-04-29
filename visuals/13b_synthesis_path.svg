@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1370.25 420" width="1370.25" height="420" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="4.8" refX="0" refY="2.4" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.4, 8 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+<polyline points="697.6375,76 697.6375,96 419.32500000000005,96 419.32500000000005,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="697.6375,76 697.6375,96 797.075,96 797.075,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="697.6375,76 697.6375,96 1160.525,96 1160.525,116" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="697.6375,76 697.6375,96 213.30000000000007,96 213.30000000000007,268" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="419.32500000000005,152 419.32500000000005,192" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="797.075,152 797.075,192" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1160.525,152 1160.525,192" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="213.30000000000007,304 213.30000000000007,362 285.4125,362" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="419.32500000000005,228 419.32500000000005,286 609.475,286" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="797.075,228 797.075,268" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="1160.525,228 1160.525,286 984.6750000000001,286" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<polyline points="797.075,304 797.075,362 724.9625,362" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+<rect x="560.0875000000001" y="40" width="275.1" height="36" rx="0" ry="0" fill="#7aa2f7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="267.475" y="116" width="303.70000000000005" height="36" rx="0" ry="0" fill="#9ece6a" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="663.1" y="116" width="267.95000000000005" height="36" rx="0" ry="0" fill="#9ece6a" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="1012.2500000000001" y="116" width="296.55" height="36" rx="0" ry="0" fill="#73daca" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="40.00000000000006" y="268" width="346.6" height="36" rx="0" ry="0" fill="#e0af68" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="235.30000000000004" y="192" width="368.05" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="627.35" y="192" width="339.45000000000005" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="990.8000000000001" y="192" width="339.45000000000005" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="285.4125" y="344" width="439.55" height="36" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<rect x="609.475" y="268" width="375.20000000000005" height="36" rx="0" ry="0" fill="#bb9af7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="697.6375" y="58" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">RECOMMENDED PROPOSAL — BharatBrain</text>
+<text x="419.32500000000005" y="134" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">LAYER 1 — Option 5 Multilingual Mirror</text>
+<text x="797.075" y="134" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">LAYER 2 — Option 1 ASHA Companion</text>
+<text x="1160.525" y="134" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">LAYER 3 — Option 3 Metabolic Sentinel</text>
+<text x="213.30000000000007" y="286" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">LONG-TERM VISION — Option 4 Foundation Model</text>
+<text x="419.32500000000005" y="210" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">Native Indian-language cognitive scoring engine</text>
+<text x="797.075" y="210" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">ASHA-deployed missing-modality fusion model</text>
+<text x="1160.525" y="210" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">T2D metabolic risk pathway — 101M diabetics</text>
+<text x="505.1875" y="362" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="var(--_text)">BrainBharat open-source foundation model — 3-year roadmap</text>
+<text x="797.075" y="286" text-anchor="middle" dy="0.35em" font-size="13" font-weight="500" fill="#1a1b26">PROPOSAL CORE — Options 1 plus 5 plus 3 combined</text>
+</svg>
