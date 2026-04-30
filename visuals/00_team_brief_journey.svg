@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" width="1400" height="720" style="--bg:#1a1b26;--fg:#a9b1d6;--line:#3d59a1;--accent:#7aa2f7;--muted:#565f89;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 30%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="4.8" refX="8" refY="2.4" orient="auto">
+    <polygon points="0 0, 8 2.4, 0 4.8" fill="var(--_arrow)" />
+  </marker>
+</defs>
+
+<!-- ============ TITLE ============ -->
+<text x="700" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="var(--_text)">Where We Are — The Journey</text>
+<text x="700" y="60" text-anchor="middle" font-size="13" font-weight="400" fill="var(--_text-sec)">IISc AI Challenge for Healthy Brain Aging · Submission deadline 2026-05-20 · Today 2026-04-30</text>
+
+<!-- ============ PHASE HEADERS ============ -->
+<rect x="40" y="90" width="420" height="36" rx="0" fill="#9ece6a" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="250" y="108" text-anchor="middle" dy="0.35em" font-size="14" font-weight="600" fill="#1a1b26">PHASE A — DONE  ·  4 weeks of work</text>
+
+<rect x="490" y="90" width="420" height="36" rx="0" fill="#f7768e" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="700" y="108" text-anchor="middle" dy="0.35em" font-size="14" font-weight="600" fill="#1a1b26">PHASE B — NOW  ·  Thu → Sat (2 days)</text>
+
+<rect x="940" y="90" width="420" height="36" rx="0" fill="#e0af68" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="1150" y="108" text-anchor="middle" dy="0.35em" font-size="14" font-weight="600" fill="#1a1b26">PHASE C — NEXT  ·  to May 20 (20 days)</text>
+
+<!-- ============ PHASE A NODES (Done) ============ -->
+<rect x="40" y="160" width="420" height="60" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="250" y="184" text-anchor="middle" font-size="13" font-weight="600" fill="var(--_text)">Strategy — 6 team decisions documented</text>
+<text x="250" y="204" text-anchor="middle" font-size="11" fill="var(--_text-sec)">00_strategy_brief.md  ·  goal · skills · scope · users · data · India edge</text>
+
+<polyline points="250,220 250,240" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+
+<rect x="40" y="244" width="420" height="60" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="250" y="268" text-anchor="middle" font-size="13" font-weight="600" fill="var(--_text)">Research — 4 deep-research threads, then verified</text>
+<text x="250" y="288" text-anchor="middle" font-size="11" fill="var(--_text-sec)">FL · Multilingual LLM · T2D-AD · Winning proposals  +  hallucinations purged</text>
+
+<polyline points="250,304 250,324" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+
+<rect x="40" y="328" width="420" height="60" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="250" y="352" text-anchor="middle" font-size="13" font-weight="600" fill="var(--_text)">5 Options designed  ·  Rubric scored</text>
+<text x="250" y="372" text-anchor="middle" font-size="11" fill="var(--_text-sec)">ASHA · Twin · Sentinel · Foundation · Mirror  ·  6 categories × 22 criteria</text>
+
+<polyline points="250,388 250,408" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+
+<rect x="40" y="412" width="420" height="60" rx="0" fill="#bb9af7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="250" y="436" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1b26">BhāratBrain — lead candidate (Options 1+5+3)</text>
+<text x="250" y="456" text-anchor="middle" font-size="11" fill="#1a1b26">96.2 / 100  ·  ASHA Companion + Multilingual Mirror + Metabolic Sentinel</text>
+
+<!-- A → B connector -->
+<polyline points="460,442 475,442 475,300 488,300" fill="none" stroke="var(--_arrow)" stroke-width="1.25" marker-end="url(#arrowhead)" />
+
+<!-- ============ PHASE B NODES (Now) ============ -->
+<!-- Domain track header -->
+<rect x="490" y="160" width="420" height="36" rx="0" fill="#bb9af7" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="700" y="178" text-anchor="middle" dy="0.35em" font-size="13" font-weight="600" fill="#1a1b26">DOMAIN TRACK — Apsara, Taruna, SME (+ non-Bangalore domain)</text>
+
+<!-- Domain track tasks -->
+<rect x="490" y="200" width="420" height="80" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="510" y="220" font-size="11" font-weight="600" fill="var(--_text)">D1  Apsara</text>
+<text x="600" y="220" font-size="11" fill="var(--_text-sec)">→ Read 3 SANSCOG / Ravindranath papers</text>
+<text x="510" y="238" font-size="11" font-weight="600" fill="var(--_text)">D2  Taruna</text>
+<text x="600" y="238" font-size="11" fill="var(--_text-sec)">→ Lancet 14 risk factors × ASHA feasibility</text>
+<text x="510" y="256" font-size="11" font-weight="600" fill="var(--_text)">D3  Apsara/SME</text>
+<text x="600" y="256" font-size="11" fill="var(--_text-sec)">→ Clinical co-PI shortlist (5–10 names)</text>
+<text x="510" y="274" font-size="11" font-weight="600" fill="var(--_text)">D4  Jaya/non-BLR</text>
+<text x="600" y="274" font-size="11" fill="var(--_text-sec)">→ ASHA workflow reality check</text>
+
+<!-- Architecture track header -->
+<rect x="490" y="296" width="420" height="36" rx="0" fill="#73daca" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="700" y="314" text-anchor="middle" dy="0.35em" font-size="13" font-weight="600" fill="#1a1b26">ARCHITECTURE TRACK — Sanjay, Abhishek (+ Harsh, Ashish)</text>
+
+<!-- Architecture track tasks -->
+<rect x="490" y="336" width="420" height="80" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="510" y="356" font-size="11" font-weight="600" fill="var(--_text)">A1  Sanjay/Abhishek</text>
+<text x="630" y="356" font-size="11" fill="var(--_text-sec)">→ FL Phase 1 (cross-silo, 3–5 PHCs)</text>
+<text x="510" y="374" font-size="11" font-weight="600" fill="var(--_text)">A2  Sanjay</text>
+<text x="630" y="374" font-size="11" fill="var(--_text-sec)">→ Falsifiable research claim</text>
+<text x="510" y="392" font-size="11" font-weight="600" fill="var(--_text)">A3  Abhishek</text>
+<text x="630" y="392" font-size="11" fill="var(--_text-sec)">→ Multilingual stack feasibility</text>
+<text x="510" y="410" font-size="11" font-weight="600" fill="var(--_text)">A4  Harsh/Ashish</text>
+<text x="630" y="410" font-size="11" fill="var(--_text-sec)">→ Missing-modality fusion sketch</text>
+
+<!-- Output banner -->
+<rect x="490" y="432" width="420" height="40" rx="0" fill="#f7768e" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="700" y="452" text-anchor="middle" dy="0.35em" font-size="13" font-weight="700" fill="#1a1b26">8 deliverables  ·  1 page each  ·  by Saturday's call</text>
+
+<!-- B → C connector -->
+<polyline points="910,452 925,452 925,242 938,242" fill="none" stroke="var(--_arrow)" stroke-width="1.25" marker-end="url(#arrowhead)" />
+
+<!-- ============ PHASE C NODES (Next) ============ -->
+<rect x="940" y="160" width="420" height="80" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="1150" y="186" text-anchor="middle" font-size="13" font-weight="600" fill="var(--_text)">Saturday 2026-05-02</text>
+<text x="1150" y="206" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Review the 8 outputs · stress-test BhāratBrain</text>
+<text x="1150" y="224" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Decide if subteams diverge into parallel directions</text>
+
+<polyline points="1150,240 1150,260" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+
+<rect x="940" y="264" width="420" height="80" rx="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="1150" y="290" text-anchor="middle" font-size="13" font-weight="600" fill="var(--_text)">~May 10  ·  Soft convergence</text>
+<text x="1150" y="310" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Lock the direction we submit</text>
+<text x="1150" y="328" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Begin writing the 3-page proposal</text>
+
+<polyline points="1150,344 1150,364" fill="none" stroke="var(--_line)" stroke-width="0.75" marker-end="url(#arrowhead)" />
+
+<rect x="940" y="368" width="420" height="80" rx="0" fill="#e0af68" stroke="var(--_node-stroke)" stroke-width="0.75" />
+<text x="1150" y="394" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1b26">May 20  ·  SUBMIT</text>
+<text x="1150" y="414" text-anchor="middle" font-size="11" fill="#1a1b26">3-page proposal to IISc CBR</text>
+<text x="1150" y="432" text-anchor="middle" font-size="11" fill="#1a1b26">₹2 crore prize · brain-aging research grant</text>
+
+<!-- ============ FOOTER LEGEND ============ -->
+<text x="40" y="540" font-size="11" font-weight="600" fill="var(--_text)">Two subteams</text>
+<text x="40" y="558" font-size="11" fill="var(--_text-sec)">Bangalore (lead: Sanjay)  ·  Sanjay, Abhishek, Apsara, Taruna, +SME</text>
+<text x="40" y="576" font-size="11" fill="var(--_text-sec)">Non-Bangalore (lead: Harsh)  ·  Harsh, Ashish, Jaya, +1, +SME</text>
+<text x="40" y="594" font-size="11" fill="var(--_text-sec)">Joint until Saturday  ·  may fork the repo and pursue parallel direction after</text>
+
+<text x="700" y="540" text-anchor="middle" font-size="11" font-weight="600" fill="var(--_text)">How to read BhāratBrain framing</text>
+<text x="700" y="558" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Lead candidate, not the verdict.</text>
+<text x="700" y="576" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Architecture track stress-tests it; domain track sharpens the problem.</text>
+<text x="700" y="594" text-anchor="middle" font-size="11" fill="var(--_text-sec)">Saturday answers: do we still believe in it, or does an alternative win?</text>
+
+<text x="1360" y="540" text-anchor="end" font-size="11" font-weight="600" fill="var(--_text)">Reading order if new to repo</text>
+<text x="1360" y="558" text-anchor="end" font-size="11" fill="var(--_text-sec)">README → 00_strategy_brief → 07_solution_scores</text>
+<text x="1360" y="576" text-anchor="end" font-size="11" fill="var(--_text-sec)">→ deep-research/synthesis_critique → your delegated task</text>
+<text x="1360" y="594" text-anchor="end" font-size="11" fill="var(--_text-sec)">~30 minutes total</text>
+
+<text x="700" y="640" text-anchor="middle" font-size="11" fill="var(--_text-muted)">Cite real anchors only — see deep-research/synthesis_critique.md for the verified-vs-fabricated audit</text>
+<text x="700" y="660" text-anchor="middle" font-size="10" fill="var(--_text-faint)">Generated 2026-04-30 · /visuals/00_team_brief_journey.svg</text>
+
+</svg>
