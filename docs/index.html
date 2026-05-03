@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BhāratBrain · Team Brief · IISc AI Challenge 2026</title>
+<meta name="description" content="Team briefing page for the BhāratBrain proposal, IISc AI Challenge for Healthy Brain Aging, May 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ─── Custom properties ─────────────────────────────── */
+:root {
+  --indigo:         oklch(22% 0.085 270);
+  --indigo-mid:     oklch(30% 0.075 268);
+  --indigo-light:   oklch(40% 0.065 265);
+  --saffron:        oklch(74% 0.16 62);
+  --saffron-pale:   oklch(95% 0.045 78);
+  --pink:           oklch(54% 0.19 352);
+  --pink-pale:      oklch(94% 0.04 355);
+  --green:          oklch(52% 0.12 142);
+  --green-pale:     oklch(94% 0.04 142);
+  --off-white:      oklch(97% 0.008 85);
+  --warm-white:     oklch(99% 0.005 80);
+  --text:           oklch(18% 0.025 270);
+  --text-muted:     oklch(50% 0.02 265);
+  --text-light:     oklch(88% 0.01 260);
+  --border:         oklch(88% 0.01 270);
+
+  --font-display: 'Barlow Condensed', 'Noto Sans Devanagari', sans-serif;
+  --font-body:    'Manrope', 'Noto Sans Devanagari', sans-serif;
+  --font-deva:    'Noto Sans Devanagari', sans-serif;
+
+  --nav-h: 56px;
+}
+
+/* ─── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--warm-white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+p { max-width: 68ch; }
+p + p { margin-top: 0.9em; }
+
+/* ─── Utilities ─────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
+.chip {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.chip-arch  { background: var(--green-pale); color: var(--green); }
+.chip-domain{ background: var(--pink-pale);  color: var(--pink);  }
+.chip-lead  { background: var(--saffron-pale); color: oklch(45% 0.14 62); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── Navigation ────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--indigo);
+  height: var(--nav-h);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  width: 100%; max-width: 1100px; margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  display: flex; align-items: center; gap: 0;
+}
+.nav-brand {
+  font-family: var(--font-deva);
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--saffron);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-right: auto;
+  text-decoration: none;
+}
+.nav-brand span {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(70% 0.02 265);
+  display: block;
+  margin-top: -2px;
+}
+.nav-links {
+  display: flex; gap: 0; list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--saffron); }
+.nav-deadline {
+  margin-left: 20px;
+  padding: 5px 14px;
+  background: var(--saffron);
+  color: var(--indigo);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ─── Hero ──────────────────────────────────────────── */
+#hero {
+  background: var(--indigo);
+  padding: clamp(72px, 12vh, 120px) 0 clamp(60px, 10vh, 100px);
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 80% 50%, oklch(32% 0.07 268) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+.hero-text { position: relative; }
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 20px;
+}
+.hero-title-deva {
+  font-family: var(--font-deva);
+  font-weight: 700;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 1;
+  color: var(--saffron);
+  display: block;
+  margin-bottom: 4px;
+}
+.hero-title-latin {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(18px, 3vw, 30px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: oklch(72% 0.06 265);
+  display: block;
+  margin-bottom: clamp(20px, 4vh, 36px);
+}
+.hero-tagline {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 400;
+  color: var(--text-light);
+  line-height: 1.5;
+  max-width: 52ch;
+  margin-bottom: clamp(28px, 5vh, 44px);
+}
+.hero-tagline strong { color: var(--warm-white); font-weight: 600; }
+.hero-cta {
+  display: inline-flex; gap: 16px; flex-wrap: wrap; align-items: center;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--saffron);
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: oklch(80% 0.16 62); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid oklch(45% 0.05 268);
+  color: var(--text-light);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--saffron); color: var(--saffron); }
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+  padding-top: 8px;
+}
+.hero-badge {
+  text-align: center;
+  padding: 20px 24px;
+  background: oklch(28% 0.06 268);
+  border-radius: 12px;
+  border: 1px solid oklch(38% 0.06 268);
+}
+.hero-badge-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--saffron);
+  line-height: 1;
+  display: block;
+}
+.hero-badge-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(65% 0.04 268);
+  display: block;
+  margin-top: 4px;
+}
+.hero-badge-sub {
+  font-size: 0.8rem;
+  color: oklch(58% 0.04 268);
+  margin-top: 8px;
+}
+.hero-prize {
+  text-align: center;
+  padding: 14px 20px;
+  background: oklch(30% 0.06 268);
+  border-radius: 8px;
+  border: 1px solid oklch(42% 0.06 268);
+}
+.hero-prize-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+.hero-prize-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(62% 0.04 268);
+  margin-top: 4px;
+}
+
+/* ─── Progress bar ──────────────────────────────────── */
+.progress-bar {
+  background: oklch(28% 0.06 268);
+  padding: 20px 0;
+}
+.progress-inner {
+  display: flex; align-items: center; gap: 20px;
+}
+.progress-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(65% 0.04 268);
+  white-space: nowrap;
+}
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: oklch(35% 0.05 268);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--saffron);
+  border-radius: 4px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.progress-pct {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--saffron);
+  white-space: nowrap;
+}
+
+/* ─── Section base ──────────────────────────────────── */
+section { padding: clamp(60px, 10vh, 100px) 0; }
+.section-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: clamp(28px, 5vh, 48px);
+}
+
+/* ─── Problem section ───────────────────────────────── */
+#problem { background: var(--off-white); }
+#problem .section-eyebrow { color: var(--pink); }
+#problem .section-title { color: var(--text); }
+
+.pull-stat {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--indigo);
+  padding: 20px 24px;
+  background: var(--saffron-pale);
+  border-radius: 8px;
+  margin: clamp(24px, 4vh, 40px) 0;
+}
+.pull-stat em {
+  color: var(--pink);
+  font-style: normal;
+}
+
+.problem-body { column-count: 1; }
+.problem-body p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+.problem-body strong { color: var(--indigo); font-weight: 700; }
+
+.india-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: clamp(28px, 5vh, 48px);
+}
+.india-item {
+  background: var(--warm-white);
+  padding: 24px;
+}
+.india-item-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--saffron);
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+.india-item-body {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.india-item-body strong { color: var(--text); font-weight: 600; }
+
+.india-thesis {
+  margin-top: clamp(28px, 4vh, 44px);
+  padding: 24px 28px;
+  background: var(--indigo);
+  border-radius: 10px;
+  color: var(--warm-white);
+}
+.india-thesis p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: none;
+}
+.india-thesis strong { color: var(--saffron); }
+
+/* ─── Solution section ──────────────────────────────── */
+#solution { background: var(--indigo); }
+#solution .section-eyebrow { color: var(--saffron); }
+#solution .section-title { color: var(--warm-white); }
+
+.solution-intro {
+  color: var(--text-light);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 62ch;
+  margin-bottom: clamp(36px, 6vh, 60px);
+}
+
+.arch-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: clamp(36px, 6vh, 56px);
+}
+.arch-layer {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 20px;
+  align-items: start;
+  padding: 28px 0 28px 0;
+  border-top: 1px solid oklch(32% 0.06 268);
+}
+.arch-layer:last-child { border-bottom: 1px solid oklch(32% 0.06 268); }
+.arch-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: oklch(35% 0.07 268);
+  line-height: 1;
+  margin-top: 4px;
+}
+.arch-body { }
+.arch-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 6px;
+}
+.arch-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--warm-white);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.arch-desc {
+  font-size: 0.93rem;
+  color: var(--text-light);
+  line-height: 1.65;
+  max-width: 56ch;
+}
+.arch-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: flex-start;
+  min-width: 160px;
+}
+.tech-tag {
+  padding: 3px 10px;
+  background: oklch(30% 0.07 268);
+  border: 1px solid oklch(38% 0.07 268);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: oklch(72% 0.06 268);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.tech-tag.green { background: oklch(22% 0.07 142); border-color: oklch(35% 0.1 142); color: var(--green); }
+.tech-tag.saffron { background: oklch(22% 0.05 72); border-color: oklch(35% 0.08 72); color: var(--saffron); }
+.tech-tag.pink { background: oklch(22% 0.07 352); border-color: oklch(35% 0.1 352); color: var(--pink); }
+
+.weaknesses {
+  padding: 28px;
+  background: oklch(26% 0.06 268);
+  border-radius: 10px;
+  border: 1px solid oklch(34% 0.06 268);
+}
+.weaknesses-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: oklch(60% 0.06 268);
+  margin-bottom: 16px;
+}
+.weakness-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.weakness-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.weakness-id {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: var(--saffron);
+  color: var(--indigo);
+  border-radius: 4px;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+.weakness-text {
+  font-size: 0.9rem;
+  color: oklch(75% 0.025 268);
+  line-height: 1.5;
+}
+
+/* ─── Team section ──────────────────────────────────── */
+#team { background: var(--warm-white); }
+#team .section-eyebrow { color: var(--green); }
+#team .section-title { color: var(--text); }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.team-subteam {
+  padding: 28px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--off-white);
+}
+.team-subteam-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.team-subteam.bangalore .team-subteam-label { color: var(--saffron); }
+.team-subteam.non-blr .team-subteam-label    { color: var(--pink);    }
+
+.team-member {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.team-member:last-child { border-bottom: none; }
+.member-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  flex: 0 0 auto;
+}
+.member-role {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+.member-track { flex: 0 0 auto; }
+.member-recruiting {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.tracks-note {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.track-block {
+  padding: 20px;
+  border-radius: 8px;
+}
+.track-block.arch  { background: var(--green-pale); }
+.track-block.domain{ background: var(--pink-pale); }
+.track-block-name {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.track-block.arch  .track-block-name { color: var(--green); }
+.track-block.domain .track-block-name { color: var(--pink); }
+.track-block p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* ─── Tasks section ─────────────────────────────────── */
+#tasks { background: var(--off-white); }
+#tasks .section-eyebrow { color: var(--saffron); }
+#tasks .section-title { color: var(--text); }
+
+.tasks-intro {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: clamp(28px, 5vh, 48px);
+  max-width: 60ch;
+}
+.tasks-intro strong { color: var(--text); }
+
+.task-track-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  margin-top: 36px;
+}
+.task-track-title.arch   { color: var(--green); }
+.task-track-title.domain { color: var(--pink); }
+.task-track-title:first-child { margin-top: 0; }
+
+table.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+table.task-table th {
+  background: var(--indigo);
+  color: oklch(72% 0.04 268);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+}
+table.task-table td {
+  padding: 14px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--warm-white);
+}
+table.task-table tr:last-child td { border-bottom: none; }
+table.task-table tr:hover td { background: var(--off-white); }
+
+.task-id {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  width: 42px;
+}
+.task-table.arch .task-id   { color: var(--green); }
+.task-table.domain .task-id { color: var(--pink);  }
+
+.task-owner { white-space: nowrap; color: var(--text-muted); }
+.task-deliverable { color: var(--text-muted); font-style: italic; }
+
+.working-norms {
+  margin-top: 36px;
+  padding: 20px 24px;
+  background: oklch(92% 0.04 270);
+  border-radius: 8px;
+  border: 1px solid oklch(80% 0.04 270);
+}
+.working-norms p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+.working-norms strong { color: var(--indigo); }
+
+/* ─── Roadmap section ───────────────────────────────── */
+#roadmap { background: var(--indigo); }
+#roadmap .section-eyebrow { color: var(--green); }
+#roadmap .section-title { color: var(--warm-white); }
+
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  border-left: 2px solid oklch(35% 0.06 268);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 36px 28px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -7px;
+  top: 6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: oklch(35% 0.07 268);
+  border: 2px solid oklch(38% 0.07 268);
+}
+.timeline-item.active .timeline-dot {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 4px oklch(35% 0.08 72);
+}
+.timeline-item.submit .timeline-dot {
+  width: 16px; height: 16px;
+  left: -9px; top: 4px;
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px oklch(22% 0.07 142);
+}
+.timeline-date {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: oklch(55% 0.04 268);
+  margin-bottom: 4px;
+}
+.timeline-item.active .timeline-date { color: var(--saffron); }
+.timeline-item.submit .timeline-date { color: var(--green); }
+.timeline-milestone {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--warm-white);
+  margin-bottom: 4px;
+}
+.timeline-item.submit .timeline-milestone {
+  font-size: 1.35rem;
+  color: var(--green);
+}
+.timeline-detail {
+  font-size: 0.88rem;
+  color: oklch(62% 0.025 268);
+  line-height: 1.5;
+  max-width: 55ch;
+}
+
+.today-banner {
+  margin-top: 48px;
+  padding: 24px;
+  background: oklch(28% 0.07 268);
+  border-radius: 10px;
+  border: 1px solid oklch(38% 0.07 268);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.today-banner-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  white-space: nowrap;
+}
+.today-banner-text {
+  font-size: 0.92rem;
+  color: var(--text-light);
+}
+
+/* ─── Reading guide ─────────────────────────────────── */
+#reading { background: var(--warm-white); }
+#reading .section-eyebrow { color: var(--text-muted); }
+#reading .section-title { color: var(--text); }
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+.file-link {
+  display: block;
+  padding: 14px 18px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.file-link:hover { border-color: var(--indigo); background: oklch(92% 0.04 270); }
+.file-link-name {
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  color: var(--indigo);
+  display: block;
+  margin-bottom: 4px;
+}
+.file-link-desc { color: var(--text-muted); line-height: 1.4; }
+
+/* ─── Feedback forms ─────────────────────────────────── */
+.feedback-zone {
+  margin-top: clamp(40px, 7vh, 64px);
+  padding-top: 32px;
+  border-top: 1px solid;
+}
+#problem .feedback-zone   { border-color: var(--border); }
+#solution .feedback-zone  { border-color: oklch(30% 0.06 268); }
+#team .feedback-zone      { border-color: var(--border); }
+#tasks .feedback-zone     { border-color: var(--border); }
+#roadmap .feedback-zone   { border-color: oklch(30% 0.06 268); }
+
+.feedback-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+#problem .feedback-toggle,
+#team .feedback-toggle,
+#tasks .feedback-toggle   { color: var(--text-muted); }
+#problem .feedback-toggle:hover,
+#team .feedback-toggle:hover,
+#tasks .feedback-toggle:hover { color: var(--indigo); }
+#solution .feedback-toggle,
+#roadmap .feedback-toggle { color: oklch(55% 0.04 268); }
+#solution .feedback-toggle:hover,
+#roadmap .feedback-toggle:hover { color: var(--saffron); }
+
+.feedback-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.feedback-toggle[aria-expanded="true"] .feedback-arrow { transform: rotate(90deg); }
+
+.feedback-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.feedback-panel[aria-hidden="false"] { grid-template-rows: 1fr; }
+.feedback-panel-inner { overflow: hidden; }
+.feedback-form {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 680px;
+}
+.feedback-form input,
+.feedback-form textarea {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+#problem .feedback-form input,
+#problem .feedback-form textarea,
+#team .feedback-form input,
+#team .feedback-form textarea,
+#tasks .feedback-form input,
+#tasks .feedback-form textarea {
+  border: 1px solid var(--border);
+  background: var(--warm-white);
+  color: var(--text);
+}
+#problem .feedback-form input:focus,
+#problem .feedback-form textarea:focus,
+#team .feedback-form input:focus,
+#team .feedback-form textarea:focus,
+#tasks .feedback-form input:focus,
+#tasks .feedback-form textarea:focus { border-color: var(--indigo); }
+#solution .feedback-form input,
+#solution .feedback-form textarea,
+#roadmap .feedback-form input,
+#roadmap .feedback-form textarea {
+  border: 1px solid oklch(35% 0.07 268);
+  background: oklch(26% 0.06 268);
+  color: var(--text-light);
+}
+#solution .feedback-form input::placeholder,
+#solution .feedback-form textarea::placeholder,
+#roadmap .feedback-form input::placeholder,
+#roadmap .feedback-form textarea::placeholder { color: oklch(50% 0.04 268); }
+#solution .feedback-form input:focus,
+#solution .feedback-form textarea:focus,
+#roadmap .feedback-form input:focus,
+#roadmap .feedback-form textarea:focus { border-color: var(--saffron); }
+
+.feedback-form input   { grid-column: 1; }
+.feedback-form textarea {
+  grid-column: 1 / -1;
+  resize: vertical;
+  min-height: 88px;
+  line-height: 1.55;
+}
+.feedback-submit {
+  grid-column: 1;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.feedback-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+#problem .feedback-submit,
+#team .feedback-submit,
+#tasks .feedback-submit { background: var(--indigo); color: var(--warm-white); }
+#solution .feedback-submit,
+#roadmap .feedback-submit { background: var(--saffron); color: var(--indigo); }
+.feedback-success {
+  display: none;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 12px;
+  grid-column: 1 / -1;
+}
+#problem .feedback-success,
+#team .feedback-success,
+#tasks .feedback-success { background: var(--green-pale); color: var(--green); }
+#solution .feedback-success,
+#roadmap .feedback-success { background: oklch(26% 0.07 142); color: var(--green); }
+
+/* ─── Footer ─────────────────────────────────────────── */
+footer {
+  background: var(--indigo);
+  padding: 32px 0;
+  border-top: 1px solid oklch(28% 0.06 268);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--font-deva);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--saffron);
+}
+.footer-text {
+  font-size: 0.8rem;
+  color: oklch(52% 0.03 268);
+}
+.footer-text a { color: oklch(62% 0.04 268); }
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .nav-deadline { margin-left: auto; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-meta { flex-direction: row; align-items: flex-start; }
+  .arch-layer { grid-template-columns: 40px 1fr; }
+  .arch-tech { display: none; }
+  .team-grid { grid-template-columns: 1fr; }
+  .tracks-note { grid-template-columns: 1fr; }
+  .feedback-form { grid-template-columns: 1fr; }
+  .feedback-form textarea { grid-column: 1; }
+  .feedback-submit { grid-column: 1; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .india-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .india-grid { grid-template-columns: 1fr; }
+  .hero-meta { flex-direction: column; align-items: stretch; }
+  .hero-badge, .hero-prize { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Page navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      भारत-Brain
+      <span>BHĀRATBRAIN</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#tasks">This Week</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+    </ul>
+    <div class="nav-deadline" aria-label="Days until submission">20 DAYS LEFT</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text reveal">
+        <p class="hero-eyebrow">IISc AI Challenge for Healthy Brain Aging · 2026</p>
+        <span class="hero-title-deva" id="hero-title">भारत-Brain</span>
+        <span class="hero-title-latin">BhāratBrain</span>
+        <p class="hero-tagline">
+          Early detection of Alzheimer's and cognitive decline for 1.4 billion Indians,
+          through <strong>ASHA workers, native languages, and federated AI</strong>
+          that works without MRI scanners.
+        </p>
+        <div class="hero-cta">
+          <a href="#problem" class="btn-primary">Read the brief</a>
+          <a href="https://github.com/sanjaygupta-professional/iisc-challenge" class="btn-ghost" target="_blank" rel="noopener">GitHub repo</a>
+        </div>
+      </div>
+      <div class="hero-meta reveal" style="transition-delay:0.15s">
+        <div class="hero-badge">
+          <span class="hero-badge-num" id="days-count">20</span>
+          <span class="hero-badge-label">Days to deadline</span>
+          <p class="hero-badge-sub">Submit by May 20, 2026</p>
+        </div>
+        <div class="hero-prize">
+          <div class="hero-prize-num">₹2 Cr</div>
+          <div class="hero-prize-label">Research grant prize</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar">
+  <div class="container">
+    <div class="progress-inner">
+      <span class="progress-label">Proposal progress</span>
+      <div class="progress-track" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-fill" data-target="35"></div>
+      </div>
+      <span class="progress-pct">Research complete. Stress-testing now.</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem" aria-labelledby="problem-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">The Problem</p>
+    <h2 class="section-title reveal" id="problem-title">India has a brain health crisis<br>Western AI cannot solve</h2>
+
+    <div class="pull-stat reveal">
+      <em>8.8 million</em> Indians live with dementia today.<br>An estimated <em>80%</em> are never diagnosed.
+    </div>
+
+    <div class="problem-body reveal">
+      <p>India has the world's largest type-2 diabetes population: <strong>~101 million</strong> (ICMR-INDIAB-17, Lancet D&E 2023), with approximately 57% nationally undiagnosed. T2D is one of the strongest modifiable risk factors for Alzheimer's disease. India's dementia risk-factor profile, where education and vision impairment dominate rather than hearing loss, is <strong>structurally different</strong> from the Western profile that trained every major AI system.</p>
+      <p>MRI-based Alzheimer's tools reach roughly <strong>0.1% of at-risk Indians</strong>. Community-level screening, using whatever data ASHA community health workers can realistically collect, is the only path to population scale. Existing AI systems trained on Western datasets (ADNI and others) systematically underperform on Indian populations.</p>
+    </div>
+
+    <div class="india-grid reveal">
+      <div class="india-item">
+        <span class="india-item-num">01</span>
+        <p class="india-item-body"><strong>World's largest T2D burden</strong> with earliest global onset. 101 million diabetics, 57% undiagnosed.</p>
+      </div>
+      <div class="india-item">
+        <span class="india-item-num">02</span>
+        <p class="india-item-body"><strong>SANSCOG / TLSA cohort</strong> at IISc CBR: rural/urban paired longitudinal data with metabolic panels.</p>
+      </div>
+      <div class="india-item">
+        <span class="india-item-num">03</span>
+        <p class="india-item-body"><strong>1 million+ ASHA workers</strong> nationwide, the only realistic frontline screening channel at community scale.</p>
+      </div>
+      <div class="india-item">
+        <span class="india-item-num">04</span>
+        <p class="india-item-body"><strong>22 official languages</strong> requiring native cognitive assessment, not translation from English.</p>
+      </div>
+    </div>
+
+    <div class="india-thesis reveal">
+      <p><strong>No Western team can credibly claim what we can.</strong> India is the only country that simultaneously has all four of the above. That is the proposal's thesis sentence, and it drives every architectural choice in BhāratBrain.</p>
+    </div>
+
+    <!-- Feedback: Problem -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-problem" data-section="Problem">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-problem" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Problem">
+            <input type="hidden" name="section" value="Problem">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Problem section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Questions, corrections, additions on the Problem framing..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" aria-labelledby="solution-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">The Solution</p>
+    <h2 class="section-title reveal" id="solution-title">BhāratBrain: three layers,<br>one integrated system</h2>
+
+    <p class="solution-intro reveal">
+      Five directions were scored against a 22-criterion rubric. Options 1, 5, and 3 each addressed different gaps. Combined, they score higher (~97/100) than any standalone option. BhāratBrain is that synthesis, still under stress-test this week before we lock it.
+    </p>
+
+    <div class="arch-stack reveal">
+      <div class="arch-layer">
+        <span class="arch-num">01</span>
+        <div class="arch-body">
+          <p class="arch-label">Input layer (Option 5)</p>
+          <p class="arch-name">Multilingual Mirror</p>
+          <p class="arch-desc">Native cognitive assessment across Indian languages using IndicWav2Vec for speech-to-text in ~40 languages, LLM-based cognitive scoring via Sarvam-1 or Airavata, and Bhashini for deployment. No translation. No English as a proxy for cognition.</p>
+        </div>
+        <div class="arch-tech">
+          <span class="tech-tag green">IndicWav2Vec</span>
+          <span class="tech-tag green">Sarvam-1</span>
+          <span class="tech-tag green">Bhashini</span>
+          <span class="tech-tag green">Airavata</span>
+        </div>
+      </div>
+      <div class="arch-layer">
+        <span class="arch-num">02</span>
+        <div class="arch-body">
+          <p class="arch-label">Fusion model (Option 1)</p>
+          <p class="arch-name">Missing-Modality Fusion</p>
+          <p class="arch-desc">Accepts whatever data ASHA can actually collect: voice recordings, basic blood records, demographics. Handles modality dropout, because some patients have HbA1c data and some don't. Outputs a calibrated risk score with confidence bounds.</p>
+        </div>
+        <div class="arch-tech">
+          <span class="tech-tag saffron">Modality dropout</span>
+          <span class="tech-tag saffron">Gated multimodal</span>
+          <span class="tech-tag saffron">SANSCOG data</span>
+        </div>
+      </div>
+      <div class="arch-layer">
+        <span class="arch-num">03</span>
+        <div class="arch-body">
+          <p class="arch-label">Deployment (Options 1 + 3)</p>
+          <p class="arch-name">ASHA Companion + Federated Flywheel</p>
+          <p class="arch-desc">ASHA workers as the frontline screening channel. Phase 1: cross-silo federated learning across 3-5 PHCs and CBR referral sites (not cross-device smartphones). T2D metabolic risk as a weighted input channel, flagging diabetic patients as higher-priority for screening. Cold-start seed model trained on SANSCOG historical data.</p>
+        </div>
+        <div class="arch-tech">
+          <span class="tech-tag pink">Flower FL</span>
+          <span class="tech-tag pink">NVIDIA FLARE</span>
+          <span class="tech-tag pink">Cross-silo Phase 1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="weaknesses reveal">
+      <p class="weaknesses-title">Known gaps being stress-tested this week</p>
+      <ul class="weakness-list" role="list">
+        <li class="weakness-item">
+          <span class="weakness-id">A1</span>
+          <span class="weakness-text">FL must be cross-silo (PHC-to-PHC), not cross-device. No published health FL runs at ASHA phone scale yet. Revising Phase 1 architecture.</span>
+        </li>
+        <li class="weakness-item">
+          <span class="weakness-id">A2</span>
+          <span class="weakness-text">Ground truth is undefined. "85% accuracy" at what, on which validation set, adjudicated by whom? Drafting a precise falsifiable claim.</span>
+        </li>
+        <li class="weakness-item">
+          <span class="weakness-id">A3</span>
+          <span class="weakness-text">IndicWav2Vec to Sarvam-1 to Bhashini pipeline has never been built end-to-end for cognitive assessment. Phase 1 language scope must be honest.</span>
+        </li>
+        <li class="weakness-item">
+          <span class="weakness-id">A4</span>
+          <span class="weakness-text">Missing-modality fusion needs a specific model family. Modality dropout or gated multimodal, trained on what data shape?</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Feedback: Solution -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-solution" data-section="Solution">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-solution" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Solution">
+            <input type="hidden" name="section" value="Solution">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Solution section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Concerns about the architecture, alternative approaches, technical questions..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" aria-labelledby="team-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">The Team</p>
+    <h2 class="section-title reveal" id="team-title">Two subteams, two tracks,<br>converging by May 10</h2>
+
+    <div class="team-grid reveal">
+      <div class="team-subteam bangalore">
+        <p class="team-subteam-label">Bangalore subteam · Lead: Sanjay</p>
+        <div class="team-member">
+          <span class="member-name">Sanjay Gupta</span>
+          <span class="member-role">Project lead, Accenture</span>
+          <span class="member-track"><span class="chip chip-arch">Architecture</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-name">Abhishek Ojha</span>
+          <span class="member-role">Navjivan Bank</span>
+          <span class="member-track"><span class="chip chip-arch">Architecture</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-name">Apsara Mokashi</span>
+          <span class="member-role">ThoughtWorks, organizer</span>
+          <span class="member-track"><span class="chip chip-domain">Domain</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-name">Taruna Anandwani</span>
+          <span class="member-role">Shell</span>
+          <span class="member-track"><span class="chip chip-domain">Domain</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-recruiting">Clinical SME (recruiting)</span>
+          <span class="member-track"></span>
+        </div>
+      </div>
+
+      <div class="team-subteam non-blr">
+        <p class="team-subteam-label">Non-Bangalore subteam · Lead: Harsh</p>
+        <div class="team-member">
+          <span class="member-name">Harsh</span>
+          <span class="member-role">Lead</span>
+          <span class="member-track"><span class="chip chip-arch">Architecture</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-name">Ashish</span>
+          <span class="member-role"></span>
+          <span class="member-track"><span class="chip chip-arch">Architecture</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-name">Jaya</span>
+          <span class="member-role"></span>
+          <span class="member-track"><span class="chip chip-domain">Domain</span></span>
+        </div>
+        <div class="team-member">
+          <span class="member-recruiting">+1 member (recruiting)</span>
+        </div>
+        <div class="team-member">
+          <span class="member-recruiting">Clinical SME (recruiting)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tracks-note reveal">
+      <div class="track-block arch">
+        <p class="track-block-name">Architecture track</p>
+        <p>Solution-space stress-tests: FL Phase 1 design, falsifiable claim, multilingual stack, fusion model. Outputs feed the proposal's methodology and technical-approach sections.</p>
+      </div>
+      <div class="track-block domain">
+        <p class="track-block-name">Domain track</p>
+        <p>Problem-space sharpening: ASHA reality, CBR/SANSCOG science, clinical co-PI shortlist, risk-factor mapping. Outputs feed background, clinical relevance, and deployment sections.</p>
+      </div>
+    </div>
+
+    <!-- Feedback: Team -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-team" data-section="Team">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-team" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Team">
+            <input type="hidden" name="section" value="Team">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Team section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Corrections to your details, additions, track preferences..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section id="tasks" aria-labelledby="tasks-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">This Week</p>
+    <h2 class="section-title reveal" id="tasks-title">Eight tasks. By Saturday.<br>One page each.</h2>
+
+    <p class="tasks-intro reveal">
+      <strong>Bar: one page of output per task, by Saturday's call.</strong> That is the entire definition of done. Anything shorter is acceptable; the goal is forward motion, not polish. Use real anchors only. The fabricated-claim list in <code>deep-research/synthesis_critique.md</code> is the no-go list; re-read it before citing anything.
+    </p>
+
+    <p class="task-track-title domain reveal">Domain track: problem-space sharpening</p>
+    <table class="task-table domain reveal" aria-label="Domain track tasks">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Owner</th>
+          <th>Task</th>
+          <th>Deliverable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="task-id">D1</td>
+          <td class="task-owner">Apsara</td>
+          <td>Read 3 recent CBR/SANSCOG papers (Ravindranath PubMed + cbr.iisc.ac.in/publications). Extract the cognitive battery used and metabolic markers tracked.</td>
+          <td class="task-deliverable">1-page summary: cognitive battery, metabolic panel, population characteristics</td>
+        </tr>
+        <tr>
+          <td class="task-id">D2</td>
+          <td class="task-owner">Taruna</td>
+          <td>Map the Lancet Commission 2024's 14 modifiable dementia risk factors to ASHA capture feasibility. Which can an ASHA worker realistically collect in a home visit?</td>
+          <td class="task-deliverable">Table: factor vs. ASHA-feasibility (Y/M/N) vs. data source vs. notes</td>
+        </tr>
+        <tr>
+          <td class="task-id">D3</td>
+          <td class="task-owner">Apsara / SME</td>
+          <td>Shortlist 5-10 candidate clinical co-PIs from NIMHANS, AIIMS, CBR, and SANSCOG investigators. Identify reachability through team's existing network.</td>
+          <td class="task-deliverable">Names, affiliations, reachability notes</td>
+        </tr>
+        <tr>
+          <td class="task-id">D4</td>
+          <td class="task-owner">Jaya</td>
+          <td>ASHA workflow reality check: equipment, time per visit, smartphone access, literacy assumptions, training cadence. Use NHM ASHA program docs or direct ASHA conversations.</td>
+          <td class="task-deliverable">1-page narrative of what an ASHA home visit actually looks like</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="task-track-title arch reveal">Architecture track: solution-space stress-tests</p>
+    <table class="task-table arch reveal" aria-label="Architecture track tasks">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Owner</th>
+          <th>Task</th>
+          <th>Deliverable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="task-id">A1</td>
+          <td class="task-owner">Sanjay / Abhishek</td>
+          <td>FL Phase 1 revision: cross-silo (3-5 PHCs), not cross-device. Specify cold-start seed-model approach. Reference Flower, NVIDIA FLARE, FeTS Challenge.</td>
+          <td class="task-deliverable">1-page revised architecture diagram + narrative</td>
+        </tr>
+        <tr>
+          <td class="task-id">A2</td>
+          <td class="task-owner">Sanjay</td>
+          <td>Draft the falsifiable research claim: "BhāratBrain detects [outcome] in [population] at AUC &ge; [X], adjudicated by [who], on [validation set]." Every word must be checkable.</td>
+          <td class="task-deliverable">1 paragraph, exact wording</td>
+        </tr>
+        <tr>
+          <td class="task-id">A3</td>
+          <td class="task-owner">Abhishek</td>
+          <td>Multilingual stack feasibility: IndicWav2Vec to LLM scoring (Sarvam-1/Airavata/Bhashini). Phase 1 language coverage. Latency and privacy tradeoffs.</td>
+          <td class="task-deliverable">1-page stack diagram + risks</td>
+        </tr>
+        <tr>
+          <td class="task-id">A4</td>
+          <td class="task-owner">Harsh / Ashish</td>
+          <td>Missing-modality fusion model sketch: modality dropout, gated multimodal. How does the SANSCOG data shape fit the model inputs?</td>
+          <td class="task-deliverable">1-page model sketch</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="working-norms reveal">
+      <p><strong>Corrected statistic to use:</strong> ~57% of Indian diabetics undiagnosed (not 44%). Source: ICMR-INDIAB-17. If any citation came from GPT-Researcher and cannot be independently confirmed via DOI or direct link, remove it. The fabricated-claims list is in <code>deep-research/synthesis_critique.md</code>. If blocked, say so in the shared channel immediately. Do not sit on it for two days.</p>
+    </div>
+
+    <!-- Feedback: Tasks -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-tasks" data-section="Tasks">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-tasks" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Tasks">
+            <input type="hidden" name="section" value="Tasks">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Tasks section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Questions about your task, blockers, task reassignment requests, scope concerns..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" aria-labelledby="roadmap-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">Roadmap</p>
+    <h2 class="section-title reveal" id="roadmap-title">Twenty days to May 20</h2>
+
+    <div class="timeline reveal">
+      <div class="timeline-item active">
+        <div class="timeline-dot" role="presentation"></div>
+        <p class="timeline-date">Thu Apr 30 (Today)</p>
+        <p class="timeline-milestone">Team call. Tasks distributed.</p>
+        <p class="timeline-detail">This brief goes out. All 8 tasks are picked up. Tracks split into architecture and domain work.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" role="presentation"></div>
+        <p class="timeline-date">Sat May 2</p>
+        <p class="timeline-milestone">Second call. Stress-test BhāratBrain.</p>
+        <p class="timeline-detail">Review 8 outputs (1 page each). If a stronger alternative surfaces, decide whether to fork. Decide if subteams pursue parallel directions.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" role="presentation"></div>
+        <p class="timeline-date">~May 10</p>
+        <p class="timeline-milestone">Soft convergence. Lock direction.</p>
+        <p class="timeline-detail">One direction is chosen for the final proposal. Begin writing. Architecture and domain outputs now become proposal sections.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" role="presentation"></div>
+        <p class="timeline-date">May 12-18</p>
+        <p class="timeline-milestone">Draft and iterate.</p>
+        <p class="timeline-detail">Tighten every claim to a verifiable source. Lock clinical co-PI signature. Three pages, no fabrications, India advantage front and center.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" role="presentation"></div>
+        <p class="timeline-date">May 19</p>
+        <p class="timeline-milestone">Final review.</p>
+        <p class="timeline-detail">Full team reads and signs off. Nothing new goes in.</p>
+      </div>
+      <div class="timeline-item submit">
+        <div class="timeline-dot" role="presentation"></div>
+        <p class="timeline-date">May 20, 2026</p>
+        <p class="timeline-milestone">SUBMIT to IISc CBR</p>
+        <p class="timeline-detail">Deadline. Hard stop. The proposal lands with Prof. Vijayalakshmi Ravindranath's committee at the Centre for Brain Research.</p>
+      </div>
+    </div>
+
+    <div class="today-banner reveal">
+      <span class="today-banner-label">After Saturday</span>
+      <p class="today-banner-text">The non-Bangalore subteam is encouraged to fork the repo and explore a parallel direction (Option 4 Foundation Model or Option 2 Cognitive Digital Twin). Both subteams compare notes around May 10 and converge on the single proposal we submit.</p>
+    </div>
+
+    <!-- Feedback: Roadmap -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-roadmap" data-section="Roadmap">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-roadmap" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Roadmap">
+            <input type="hidden" name="section" value="Roadmap">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Roadmap section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Timeline concerns, milestone questions, availability blockers..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READING GUIDE -->
+<section id="reading" aria-labelledby="reading-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">Reading Guide</p>
+    <h2 class="section-title reveal" id="reading-title">Key files in the repo</h2>
+
+    <div class="file-grid reveal">
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/00_strategy_brief.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">00_strategy_brief.md</span>
+        <span class="file-link-desc">The 6 team decisions before any research. Read first.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/07_solution_scores.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">07_solution_scores.md</span>
+        <span class="file-link-desc">Full scoring of all 5 options. How BhāratBrain emerged.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/deep-research/synthesis_critique.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">synthesis_critique.md</span>
+        <span class="file-link-desc">Required. Verified vs. fabricated claims. The no-go list.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/deep-research/t1_federated_learning.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">t1_federated_learning.md</span>
+        <span class="file-link-desc">FL architectures. Source for A1 architecture revision.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/deep-research/t2_multilingual_llm.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">t2_multilingual_llm.md</span>
+        <span class="file-link-desc">Indic LLM stack. Source for A3 stack feasibility.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/deep-research/t3_t2d_alzheimers.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">t3_t2d_alzheimers.md</span>
+        <span class="file-link-desc">T2D-AD biology. Source for D2 risk-factor mapping.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/05_solution_options.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">05_solution_options.md</span>
+        <span class="file-link-desc">Five candidate solutions with detailed user journeys.</span>
+      </a>
+      <a href="https://github.com/sanjaygupta-professional/iisc-challenge/blob/main/06_evaluation_rubric.md" class="file-link" target="_blank" rel="noopener">
+        <span class="file-link-name">06_evaluation_rubric.md</span>
+        <span class="file-link-desc">6 categories, 22 criteria, scoring anchors.</span>
+      </a>
+    </div>
+
+    <p style="margin-top:28px; font-size:0.9rem; color:var(--text-muted);">
+      If you only have 30 minutes: read this page, then <code>00_strategy_brief.md</code>, then <code>07_solution_scores.md</code>, then the entry in <code>synthesis_critique.md</code> for the thread feeding your delegated task.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">भारत-Brain</span>
+      <p class="footer-text">
+        IISc AI Challenge for Healthy Brain Aging · Submission deadline 20 May 2026 ·
+        <a href="https://cbr.iisc.ac.in/" target="_blank" rel="noopener">CBR, IISc Bangalore</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ─── Days countdown ─────────────────────────────────── */
+(function() {
+  const deadline = new Date('2026-05-20T23:59:59+05:30');
+  const now = new Date();
+  const days = Math.max(0, Math.ceil((deadline - now) / 86400000));
+  const el = document.getElementById('days-count');
+  if (el) el.textContent = days;
+  const badge = document.querySelector('.nav-deadline');
+  if (badge) badge.textContent = days + ' DAYS LEFT';
+})();
+
+/* ─── Scroll reveal ──────────────────────────────────── */
+(function() {
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (e.target.dataset.delay || 0) + 'ms';
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(el => obs.observe(el));
+})();
+
+/* ─── Progress bar ───────────────────────────────────── */
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.progress-fill').forEach(el => {
+    setTimeout(() => { el.style.width = (el.dataset.target || 0) + '%'; }, 400);
+  });
+});
+
+/* ─── Nav active state ───────────────────────────────── */
+(function() {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const a = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => obs.observe(s));
+})();
+
+/* ─── Feedback forms ─────────────────────────────────── */
+document.querySelectorAll('.feedback-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    const panelId = btn.getAttribute('aria-controls');
+    const panel = document.getElementById(panelId);
+    if (panel) panel.setAttribute('aria-hidden', expanded);
+  });
+});
+
+document.querySelectorAll('.feedback-form').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const section = form.dataset.section;
+    const data = new FormData(form);
+    const btn = form.querySelector('.feedback-submit');
+    const success = form.querySelector('.feedback-success');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    try {
+      const res = await fetch('https://formspree.io/f/xrejedbz', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        if (success) { success.style.display = 'block'; }
+        form.reset();
+        btn.textContent = 'Sent';
+      } else {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  });
+});
+</script>
+</body>
+</html>
