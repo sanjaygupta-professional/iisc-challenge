@@ -979,6 +979,247 @@ footer {
 }
 .footer-text a { color: oklch(62% 0.04 268); }
 
+/* ─── Submission template section ───────────────────── */
+#template { background: var(--warm-white); }
+#template .section-eyebrow { color: oklch(48% 0.08 270); }
+#template .section-title   { color: var(--text); }
+
+.challenge-area {
+  margin-bottom: clamp(28px, 5vh, 44px);
+  padding: 20px 24px;
+  background: oklch(94% 0.03 270);
+  border-radius: 8px;
+  border: 1px solid oklch(84% 0.03 270);
+}
+.challenge-area-label {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin-bottom: 8px;
+}
+.challenge-area p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text);
+  font-style: italic;
+}
+
+.template-constraints {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 5vh, 44px);
+}
+.constraint-tag {
+  padding: 6px 14px;
+  background: var(--indigo);
+  color: var(--saffron);
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.template-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: clamp(28px, 5vh, 44px);
+}
+.template-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: start;
+  background: var(--off-white);
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border);
+  gap: 20px;
+}
+.template-row:last-child { border-bottom: none; }
+.template-row:nth-child(even) { background: var(--warm-white); }
+.template-row-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: oklch(78% 0.03 270);
+  line-height: 1;
+  padding-top: 2px;
+}
+.template-row-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--indigo);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.template-row-prompt {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.template-row-prompt ul {
+  margin-top: 6px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.template-row-prompt li { font-size: 0.85rem; }
+
+.template-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: var(--indigo);
+  color: var(--warm-white);
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.template-download:hover { background: var(--indigo-mid); }
+.template-cv-note {
+  margin-top: 16px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+#template .feedback-zone { border-color: var(--border); }
+#template .feedback-toggle { color: var(--text-muted); }
+#template .feedback-toggle:hover { color: var(--indigo); }
+#template .feedback-submit { background: var(--indigo); color: var(--warm-white); }
+#template .feedback-success { background: var(--green-pale); color: var(--green); }
+
+/* ─── Dataset section ────────────────────────────────── */
+#dataset { background: var(--off-white); }
+#dataset .section-eyebrow { color: var(--green); }
+#dataset .section-title   { color: var(--text); }
+
+.cohort-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: clamp(28px, 5vh, 48px);
+}
+.cohort-card {
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.cohort-card.sanscog { background: oklch(96% 0.025 142); border-color: oklch(88% 0.05 142); }
+.cohort-card.tlsa    { background: oklch(96% 0.025 260); border-color: oklch(88% 0.04 260); }
+.cohort-label {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.cohort-card.sanscog .cohort-label { color: var(--green); }
+.cohort-card.tlsa    .cohort-label { color: var(--indigo); }
+.cohort-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.cohort-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cohort-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid oklch(90% 0.02 270);
+  font-size: 0.85rem;
+  gap: 12px;
+}
+.cohort-stat:last-child { border-bottom: none; }
+.cohort-stat-label { color: var(--text-muted); flex: 1; }
+.cohort-stat-value { font-weight: 700; color: var(--text); text-align: right; white-space: nowrap; }
+
+.dataset-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: clamp(24px, 4vh, 40px);
+}
+table.data-table th {
+  background: var(--indigo);
+  color: oklch(72% 0.04 268);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+}
+table.data-table th:last-child,
+table.data-table td:last-child { text-align: right; }
+table.data-table th:nth-child(2),
+table.data-table td:nth-child(2) { text-align: right; }
+table.data-table td {
+  padding: 12px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.86rem;
+  background: var(--warm-white);
+}
+table.data-table tr:last-child td { border-bottom: none; }
+table.data-table tr:hover td { background: var(--off-white); }
+.data-type-name { font-weight: 700; color: var(--text); display: block; margin-bottom: 2px; }
+.data-type-sub  { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+.data-num { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--indigo); }
+.data-num.green { color: var(--green); }
+.data-num.small { font-size: 0.88rem; color: var(--text-muted); }
+
+.dataset-strategic {
+  padding: 22px 26px;
+  background: oklch(93% 0.04 142);
+  border-radius: 10px;
+  border: 1px solid oklch(86% 0.07 142);
+}
+.dataset-strategic p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+.dataset-strategic strong { color: var(--green); font-weight: 700; }
+
+#dataset .feedback-zone { border-color: var(--border); }
+#dataset .feedback-toggle { color: var(--text-muted); }
+#dataset .feedback-toggle:hover { color: var(--green); }
+#dataset .feedback-submit { background: var(--green); color: var(--warm-white); }
+#dataset .feedback-success { background: var(--green-pale); color: var(--green); }
+
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 760px) {
   .nav-links { display: none; }
@@ -994,6 +1235,8 @@ footer {
   .feedback-submit { grid-column: 1; }
   .footer-inner { flex-direction: column; text-align: center; }
   .india-grid { grid-template-columns: 1fr 1fr; }
+  .cohort-grid { grid-template-columns: 1fr; }
+  .template-row { grid-template-columns: 36px 1fr; }
 }
 @media (max-width: 480px) {
   .india-grid { grid-template-columns: 1fr; }
@@ -1013,6 +1256,8 @@ footer {
     </a>
     <ul class="nav-links" role="list">
       <li><a href="#problem">Problem</a></li>
+      <li><a href="#template">Template</a></li>
+      <li><a href="#dataset">Data</a></li>
       <li><a href="#solution">Solution</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#tasks">This Week</a></li>
@@ -1119,6 +1364,254 @@ footer {
             <input type="hidden" name="_subject" value="BhāratBrain feedback: Problem section">
             <input type="text" name="name" placeholder="Your name" required>
             <textarea name="message" placeholder="Questions, corrections, additions on the Problem framing..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMISSION TEMPLATE -->
+<section id="template" aria-labelledby="template-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">Submission Template</p>
+    <h2 class="section-title reveal" id="template-title">What we must submit<br>by May 20</h2>
+
+    <div class="challenge-area reveal">
+      <p class="challenge-area-label">Challenge Area</p>
+      <p>"Develop AI models and tools to advance and accelerate Alzheimer's and dementia research. Examples include prediction of development of mild cognitive impairment or dementia, models for disease progression, digital twins, data processing and harmonization tools etc."</p>
+    </div>
+
+    <div class="template-constraints reveal">
+      <span class="constraint-tag">Max 3 pages (proposal)</span>
+      <span class="constraint-tag">Up to 5 team members</span>
+      <span class="constraint-tag">CV: max 2 pages each</span>
+      <span class="constraint-tag">Team must reside in India</span>
+    </div>
+
+    <div class="template-sections reveal">
+      <div class="template-row">
+        <span class="template-row-num">1</span>
+        <div>
+          <p class="template-row-title">Abstract</p>
+          <p class="template-row-prompt">Provide a concise summary of the proposed solution, clearly outlining the problem being addressed, the core idea of the approach and the expected outcomes or impact of the work.</p>
+        </div>
+      </div>
+      <div class="template-row">
+        <span class="template-row-num">2</span>
+        <div>
+          <p class="template-row-title">Project Overview</p>
+          <p class="template-row-prompt">Describe the motivation behind the proposed work, the specific objectives of the project and how the approach aligns with the goals of the Challenge. This section should explain what you plan to do and why it is important.</p>
+        </div>
+      </div>
+      <div class="template-row">
+        <span class="template-row-num">3</span>
+        <div>
+          <p class="template-row-title">AI Model Development Approach</p>
+          <p class="template-row-prompt">Explain the proposed AI/ML methodology in detail, including:
+            <ul>
+              <li>The type(s) of models or algorithms to be developed</li>
+              <li>How the datasets provided will be used and integrated</li>
+              <li>Any external or publicly available datasets that will be leveraged, with a brief justification</li>
+              <li>The overall data processing, training, validation, and evaluation strategy</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="template-row">
+        <span class="template-row-num">4</span>
+        <div>
+          <p class="template-row-title">Computing Resources Plan</p>
+          <p class="template-row-prompt">Outline the computational resources required to execute the proposed work. Specify:
+            <ul>
+              <li>The anticipated use of the available CBR computational infrastructure</li>
+              <li>Any additional external computing resources (institutional clusters, cloud platforms) the team plans to use</li>
+              <li>How the proposed resources are sufficient and appropriate for the scale of the work</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="template-row">
+        <span class="template-row-num">5</span>
+        <div>
+          <p class="template-row-title">Team Expertise and Relevant Experience</p>
+          <p class="template-row-prompt">Provide a brief description of the team's background, highlighting relevant expertise, prior experience, or past projects that demonstrate the team's capability to successfully address the Challenge.</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="AI-Challenge-Proposal-Template.docx" download class="template-download reveal">
+      Download template (.docx)
+    </a>
+    <p class="template-cv-note reveal">CVs for all team members are required as appendices (max 2 pages each, focused on relevant experience). The lead participant signs the declaration on behalf of the team.</p>
+
+    <!-- Feedback: Template -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-template" data-section="Template">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-template" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Template">
+            <input type="hidden" name="section" value="Template">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Template section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Questions about the submission requirements, format concerns, what needs to go where..." required></textarea>
+            <button type="submit" class="feedback-submit">Send feedback</button>
+            <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATASET -->
+<section id="dataset" aria-labelledby="dataset-title">
+  <div class="container">
+    <p class="section-eyebrow reveal">Data Available</p>
+    <h2 class="section-title reveal" id="dataset-title">Two real Indian cohorts.<br>11,683 participants. Longitudinal.</h2>
+
+    <div class="cohort-grid reveal">
+      <div class="cohort-card sanscog">
+        <p class="cohort-label">Rural cohort</p>
+        <p class="cohort-name">SANSCOG</p>
+        <div class="cohort-stats">
+          <div class="cohort-stat"><span class="cohort-stat-label">Location</span><span class="cohort-stat-value">Srinivaspura, Kolar, Karnataka</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Participants</span><span class="cohort-stat-value">10,013</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Age range</span><span class="cohort-stat-value">45+ (avg ~59 yrs)</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Gender</span><span class="cohort-stat-value">53% M / 47% F</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Started</span><span class="cohort-stat-value">2018, ongoing</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Follow-up</span><span class="cohort-stat-value">Every 2 years (~4 visits)</span></div>
+        </div>
+      </div>
+      <div class="cohort-card tlsa">
+        <p class="cohort-label">Urban cohort</p>
+        <p class="cohort-name">TLSA</p>
+        <div class="cohort-stats">
+          <div class="cohort-stat"><span class="cohort-stat-label">Location</span><span class="cohort-stat-value">Bangalore, Karnataka</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Participants</span><span class="cohort-stat-value">1,670</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Age range</span><span class="cohort-stat-value">45+ (avg ~62 yrs)</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Gender</span><span class="cohort-stat-value">51% M / 49% F</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Started</span><span class="cohort-stat-value">2015, ongoing</span></div>
+          <div class="cohort-stat"><span class="cohort-stat-label">Follow-up</span><span class="cohort-stat-value">Every year (~9 visits)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="dataset-title reveal">Data types and record counts</p>
+    <table class="data-table reveal" aria-label="Dataset types and counts">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>SANSCOG</th>
+          <th>TLSA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="data-type-name">Clinical</span>
+            <span class="data-type-sub">Demographics, comorbidities, neuropsychiatric, family history, CDR, HMSE, functional status</span>
+          </td>
+          <td><span class="data-num green">17,561</span></td>
+          <td><span class="data-num">5,534</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Blood Biochemistry</span>
+            <span class="data-type-sub">HbA1c, fasting lipid profile, fasting blood sugar, CBC, CRP, liver and kidney function</span>
+          </td>
+          <td><span class="data-num green">15,314</span></td>
+          <td><span class="data-num">5,222</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Cognitive Assessments</span>
+            <span class="data-type-sub">Global, attention, executive function, language, memory, visuospatial</span>
+          </td>
+          <td><span class="data-num green">16,134</span></td>
+          <td><span class="data-num">4,478</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Neuroimaging (MRI)</span>
+            <span class="data-type-sub">Structural, functional, diffusion</span>
+          </td>
+          <td><span class="data-num">3,330</span></td>
+          <td><span class="data-num">3,345</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Eye &amp; Vision</span>
+            <span class="data-type-sub">OCT, angiography, fundus</span>
+          </td>
+          <td><span class="data-num">2,436</span></td>
+          <td><span class="data-num">4,012</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Spirometry</span>
+            <span class="data-type-sub">Pulmonary function test</span>
+          </td>
+          <td><span class="data-num">5,123</span></td>
+          <td><span class="data-num">4,601</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Balance</span>
+            <span class="data-type-sub">Centre of pressure variables</span>
+          </td>
+          <td><span class="data-num">1,850</span></td>
+          <td><span class="data-num">4,020</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Audiometry</span>
+            <span class="data-type-sub">Pure tone audiometric, tympanometry</span>
+          </td>
+          <td><span class="data-num small">714</span></td>
+          <td><span class="data-num">2,013</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Gait</span>
+            <span class="data-type-sub">Spatiotemporal parameters via instrumented walkway</span>
+          </td>
+          <td><span class="data-num small">590</span></td>
+          <td><span class="data-num">1,359</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="data-type-name">Autonomic Function</span>
+            <span class="data-type-sub">Heart rate variability, deep breathing, Valsalva, tilt table, handgrip</span>
+          </td>
+          <td><span class="data-num small">92</span></td>
+          <td><span class="data-num small">477</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="dataset-strategic reveal">
+      <p><strong>Why this matters for BhāratBrain:</strong> The three largest data categories — clinical (22,895 records combined), cognitive (20,612), and blood biochemistry (20,536, including HbA1c) — directly match the modalities BhāratBrain's fusion model is designed to accept. SANSCOG's rural Karnataka setting and TLSA's urban Bangalore paired design give us the rural/urban contrast that is unique to India and unavailable to any Western team. MRI data (6,675 records) is available but is not required by our frugal-AI approach.</p>
+    </div>
+
+    <!-- Feedback: Dataset -->
+    <div class="feedback-zone">
+      <button class="feedback-toggle" aria-expanded="false" aria-controls="fb-dataset" data-section="Dataset">
+        <span class="feedback-arrow">▶</span>
+        Leave feedback on this section
+      </button>
+      <div class="feedback-panel" id="fb-dataset" aria-hidden="true">
+        <div class="feedback-panel-inner">
+          <form class="feedback-form" data-section="Dataset">
+            <input type="hidden" name="section" value="Dataset">
+            <input type="hidden" name="_subject" value="BhāratBrain feedback: Dataset section">
+            <input type="text" name="name" placeholder="Your name" required>
+            <textarea name="message" placeholder="Questions about the data, what's missing, what's most useful for your track..." required></textarea>
             <button type="submit" class="feedback-submit">Send feedback</button>
             <div class="feedback-success" aria-live="polite">Feedback sent. Thank you.</div>
           </form>
