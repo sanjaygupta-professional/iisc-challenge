@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-08T00:00:00Z",
+  "title": "Design System: BhāratBrain Team Brief",
+  "extensions": {
+    "colorMeta": {
+      "midnight-indigo":       { "role": "neutral",   "displayName": "Midnight Indigo",        "canonical": "oklch(22% 0.085 270)", "tonalRamp": ["oklch(12% 0.07 270)", "oklch(18% 0.08 270)", "oklch(22% 0.085 270)", "oklch(30% 0.075 268)", "oklch(40% 0.065 265)", "oklch(52% 0.05 265)", "oklch(68% 0.03 265)", "oklch(85% 0.012 265)"] },
+      "midnight-indigo-mid":   { "role": "neutral",   "displayName": "Midnight Indigo Mid",    "canonical": "oklch(30% 0.075 268)", "tonalRamp": ["oklch(12% 0.07 268)", "oklch(18% 0.08 268)", "oklch(22% 0.085 268)", "oklch(30% 0.075 268)", "oklch(40% 0.065 268)", "oklch(52% 0.05 268)", "oklch(68% 0.03 268)", "oklch(85% 0.012 268)"] },
+      "midnight-indigo-light": { "role": "neutral",   "displayName": "Midnight Indigo Light",  "canonical": "oklch(40% 0.065 265)", "tonalRamp": ["oklch(12% 0.07 265)", "oklch(18% 0.08 265)", "oklch(22% 0.085 265)", "oklch(30% 0.075 265)", "oklch(40% 0.065 265)", "oklch(52% 0.05 265)", "oklch(68% 0.03 265)", "oklch(85% 0.012 265)"] },
+      "saffron-flag-gold":     { "role": "primary",   "displayName": "Saffron Flag Gold",      "canonical": "oklch(74% 0.16 62)",   "tonalRamp": ["oklch(15% 0.1 62)", "oklch(25% 0.12 62)", "oklch(35% 0.14 62)", "oklch(45% 0.15 62)", "oklch(55% 0.16 62)", "oklch(65% 0.16 62)", "oklch(74% 0.16 62)", "oklch(95% 0.045 78)"] },
+      "carmine-signal":        { "role": "secondary", "displayName": "Carmine Signal",         "canonical": "oklch(54% 0.19 352)",  "tonalRamp": ["oklch(15% 0.1 352)", "oklch(25% 0.13 352)", "oklch(35% 0.16 352)", "oklch(45% 0.18 352)", "oklch(54% 0.19 352)", "oklch(65% 0.17 352)", "oklch(78% 0.12 352)", "oklch(94% 0.04 355)"] },
+      "field-green":           { "role": "tertiary",  "displayName": "Field Green",            "canonical": "oklch(52% 0.12 142)",  "tonalRamp": ["oklch(15% 0.08 142)", "oklch(25% 0.09 142)", "oklch(35% 0.1 142)", "oklch(45% 0.11 142)", "oklch(52% 0.12 142)", "oklch(62% 0.11 142)", "oklch(75% 0.08 142)", "oklch(94% 0.04 142)"] },
+      "page-ground":           { "role": "neutral",   "displayName": "Page Ground",            "canonical": "oklch(99% 0.005 80)",  "tonalRamp": ["oklch(20% 0.005 80)", "oklch(35% 0.005 80)", "oklch(50% 0.005 80)", "oklch(65% 0.005 80)", "oklch(78% 0.005 80)", "oklch(88% 0.005 80)", "oklch(95% 0.005 80)", "oklch(99% 0.005 80)"] },
+      "dark-ink":              { "role": "neutral",   "displayName": "Dark Ink",               "canonical": "oklch(18% 0.025 270)", "tonalRamp": ["oklch(12% 0.02 270)", "oklch(18% 0.025 270)", "oklch(28% 0.022 270)", "oklch(38% 0.02 270)", "oklch(50% 0.018 270)", "oklch(64% 0.015 270)", "oklch(78% 0.01 270)", "oklch(92% 0.007 270)"] },
+      "light-ink":             { "role": "neutral",   "displayName": "Light Ink",              "canonical": "oklch(88% 0.01 260)",  "tonalRamp": ["oklch(20% 0.01 260)", "oklch(35% 0.01 260)", "oklch(50% 0.01 260)", "oklch(62% 0.01 260)", "oklch(74% 0.01 260)", "oklch(82% 0.01 260)", "oklch(88% 0.01 260)", "oklch(96% 0.007 260)"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero headlines only. Barlow Condensed 700. Saffron on dark backgrounds." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. Barlow Condensed 700. Color varies by section register." },
+      "title":    { "displayName": "Title",    "purpose": "Sub-section headers and architecture layer names." },
+      "body":     { "displayName": "Body",     "purpose": "All descriptive prose. Manrope 400. Max 65-75ch line length." },
+      "label":    { "displayName": "Label",    "purpose": "Eyebrows, tech tags, chip text. Barlow Condensed 600 uppercase." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-decelerate",   "value": "cubic-bezier(0.22, 1, 0.36, 1)",    "purpose": "Progress bar fill, scroll-reveal entrance. Fast deceleration." },
+      { "name": "ease-standard",     "value": "cubic-bezier(0.4, 0, 0.2, 1)",      "purpose": "State transitions: color, border, opacity." },
+      { "name": "duration-fast",     "value": "0.15s",                             "purpose": "Transform (button translateY on hover)." },
+      { "name": "duration-standard", "value": "0.2s",                              "purpose": "Color and border transitions." },
+      { "name": "duration-reveal",   "value": "0.5s",                              "purpose": "Scroll-reveal opacity + translateY entrance." },
+      { "name": "duration-progress", "value": "1.2s",                              "purpose": "Progress bar width fill on page load." }
+    ],
+    "breakpoints": [
+      { "name": "mobile",  "value": "640px"  },
+      { "name": "tablet",  "value": "900px"  },
+      { "name": "desktop", "value": "1100px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Command-style CTA. Saffron on midnight indigo. Used for primary section actions.",
+      "html": "<button class=\"ds-btn-primary\">READ THE BRIEF</button>",
+      "css": ".ds-btn-primary { display: inline-block; background: oklch(74% 0.16 62); color: oklch(22% 0.085 270); font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 13px 28px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.15s cubic-bezier(0.4,0,0.2,1); text-decoration: none; } .ds-btn-primary:hover { background: oklch(68% 0.18 62); transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(74% 0.16 62); outline-offset: 3px; } .ds-btn-primary:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with Light Ink border, shifts to saffron on hover.",
+      "html": "<button class=\"ds-btn-ghost\">EXPLORE DATA</button>",
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: oklch(88% 0.01 260); font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 12px 24px; border: 1px solid oklch(40% 0.065 265); border-radius: 6px; cursor: pointer; transition: border-color 0.2s, color 0.2s; text-decoration: none; } .ds-btn-ghost:hover { border-color: oklch(74% 0.16 62); color: oklch(74% 0.16 62); } .ds-btn-ghost:focus-visible { outline: 2px solid oklch(74% 0.16 62); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tech Tag (Saffron)",
+      "kind": "chip",
+      "refersTo": "tech-tag-saffron",
+      "description": "Fusion/data technology classification chip. Used in architecture layers.",
+      "html": "<span class=\"ds-tag-saffron\">SANSCOG DATA</span>",
+      "css": ".ds-tag-saffron { display: inline-block; background: oklch(22% 0.05 72); color: oklch(74% 0.16 62); border: 1px solid oklch(35% 0.08 72); border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; }"
+    },
+    {
+      "name": "Tech Tag (Green)",
+      "kind": "chip",
+      "refersTo": "tech-tag-green",
+      "description": "Architecture/infrastructure classification chip.",
+      "html": "<span class=\"ds-tag-green\">IndicWav2Vec</span>",
+      "css": ".ds-tag-green { display: inline-block; background: oklch(22% 0.07 142); color: oklch(52% 0.12 142); border: 1px solid oklch(35% 0.1 142); border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; }"
+    },
+    {
+      "name": "Tech Tag (Carmine)",
+      "kind": "chip",
+      "refersTo": "tech-tag-pink",
+      "description": "Risk/research-type classification chip.",
+      "html": "<span class=\"ds-tag-carmine\">PM2.5 RR 1.17</span>",
+      "css": ".ds-tag-carmine { display: inline-block; background: oklch(22% 0.07 352); color: oklch(54% 0.19 352); border: 1px solid oklch(35% 0.1 352); border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; }"
+    },
+    {
+      "name": "Section Eyebrow + Title",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Section header pattern. Eyebrow classifies; title states the section's thesis.",
+      "html": "<div class=\"ds-section-header\"><p class=\"ds-eyebrow\">The Solution</p><h2 class=\"ds-section-title\">BhāratBrain: three layers,<br>one integrated system</h2></div>",
+      "css": ".ds-section-header { margin-bottom: 2.5rem; } .ds-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(74% 0.16 62); margin: 0 0 0.75rem; } .ds-section-title { font-family: 'Barlow Condensed', 'Noto Sans Devanagari', sans-serif; font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; line-height: 1.1; color: oklch(99% 0.005 80); margin: 0; }"
+    },
+    {
+      "name": "Research Card (Dark)",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Briefing block for research ideas on dark surfaces. Full four-side border, tonal background.",
+      "html": "<div class=\"ds-research-card\"><div class=\"ds-research-card-header\"><span class=\"ds-research-num\">01</span><div><p class=\"ds-research-label\">Conditional · Idea 1</p><h3 class=\"ds-research-name\">MCI-to-Dementia Conversion Model</h3></div><span class=\"ds-research-badge\">GATED</span></div><p class=\"ds-research-desc\">India-trained survival model on SANSCOG + TLSA. Target C-index 0.75.</p></div>",
+      "css": ".ds-research-card { background: oklch(18% 0.06 270 / 0.6); border: 1px solid oklch(40% 0.08 270 / 0.4); border-radius: 1rem; padding: 2rem; } .ds-research-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; } .ds-research-num { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; color: oklch(74% 0.16 62); flex-shrink: 0; } .ds-research-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(74% 0.16 62); margin: 0 0 0.2rem; } .ds-research-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; color: oklch(99% 0.005 80); margin: 0; } .ds-research-badge { margin-left: auto; background: oklch(40% 0.16 62 / 0.2); color: oklch(74% 0.16 62); border: 1px solid oklch(74% 0.16 62); border-radius: 999px; padding: 0.25rem 0.9rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; } .ds-research-desc { font-family: 'Manrope', sans-serif; font-size: 0.9rem; line-height: 1.6; color: oklch(88% 0.01 260); margin: 0; }"
+    },
+    {
+      "name": "Progress Indicator",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Metric with animated fill bar. Used in problem section for India-specific data points.",
+      "html": "<div class=\"ds-progress\"><div class=\"ds-progress-track\"><div class=\"ds-progress-fill\" style=\"width: 72%\"></div></div><span class=\"ds-progress-label\">72%</span></div>",
+      "css": ".ds-progress { display: flex; align-items: center; gap: 12px; } .ds-progress-track { flex: 1; height: 4px; background: oklch(88% 0.01 270); border-radius: 4px; overflow: hidden; } .ds-progress-fill { height: 100%; background: oklch(74% 0.16 62); border-radius: 4px; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-progress-label { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: oklch(74% 0.16 62); min-width: 3ch; text-align: right; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Mission Intelligence Room",
+    "overview": "BhāratBrain's design is a mission brief, not a product page. Imagine a room where India's leading brain researchers gather before a field deployment: data pinned to walls, every claim sourced, urgency visible in the layout without needing to be stated. Deep indigo grounds everything, saffron marks what demands attention, carmine flags risk and urgency, field green signals readiness.\n\nThe tone follows PRODUCT.md: urgent, principled, rooted. This means no softness, no gradient blobs, no hero metrics. Information density is a feature. Whitespace is rationed like field resources.\n\nThis system explicitly rejects: Webflow/SaaS landing page templates, startup pitch deck aesthetics (gradient blobs, glassmorphism), government/NGO plain-text sites, academic paper layouts, and generic AI company dark purple/teal palettes.",
+    "keyCharacteristics": [
+      "Deep midnight indigo base, saffron as the singular signal color",
+      "Full palette strategy: four named accent roles used deliberately, never decoratively",
+      "Barlow Condensed for all display and label text; Manrope for body prose",
+      "Noto Sans Devanagari always in the font stack — script as identity, not ornament",
+      "Flat tonal depth: no shadows, layering through background tints and opacity-reduced borders",
+      "Components are tactical: buttons are commands, tags are classifications, sections are briefing blocks"
+    ],
+    "rules": [
+      { "name": "The Rarity Rule",         "body": "Saffron appears on no more than 15% of any screen. Carmine and Field Green appear only where they carry functional meaning. Accents are rare because they need to be signals.", "section": "colors" },
+      { "name": "The No-Pure-White Rule",  "body": "Never use #fff or oklch(100% 0 0). Every surface carries at least chroma 0.005 toward the brand hue.", "section": "colors" },
+      { "name": "The Devanagari Rule",     "body": "Noto Sans Devanagari is always second in the font stack for both display and body fonts. Devanagari text renders in the same visual weight and color as adjacent Latin.", "section": "typography" },
+      { "name": "The Compression Rule",   "body": "Barlow Condensed is prohibited as body text. Use it only for display, labels, and eyebrows where brevity and authority are the goal.", "section": "typography" },
+      { "name": "The Flat Authority Rule", "body": "Surfaces do not lift. If an element needs to feel important, its content weight carries it. Drop shadows would make this page feel like a product landing page.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Saffron Flag Gold on at most 15% of any screen surface. Scarcity is the signal.",
+      "Do use Barlow Condensed for all display text, labels, eyebrows, and chip classifications.",
+      "Do use Manrope exclusively for body prose.",
+      "Do include Noto Sans Devanagari second in every font stack.",
+      "Do express depth through tonal background shifts and partial-opacity borders, never shadows.",
+      "Do use full four-side borders on all cards. Never side-stripe only.",
+      "Do assign color functionally: saffron = signal/CTA, carmine = urgency/risk, green = readiness/ecology.",
+      "Do keep body text at 65-75ch max line length."
+    ],
+    "donts": [
+      "Don't use Webflow/SaaS landing page templates, gradient blobs, or glassmorphism.",
+      "Don't use startup pitch deck aesthetics: no hero metrics with big numbers on gradient backgrounds.",
+      "Don't use government/NGO plain-text site aesthetics.",
+      "Don't use generic AI company dark purple/teal palettes.",
+      "Don't use border-left greater than 1px as a colored accent stripe on cards or callouts.",
+      "Don't use gradient text (background-clip: text with a gradient).",
+      "Don't use #000 or #fff.",
+      "Don't use identical card grids with icon+heading+text repeated endlessly.",
+      "Don't use Carmine Signal for body text — signal color only.",
+      "Don't use academic paper layout: no Times New Roman, no dense text walls."
+    ]
+  }
+}
