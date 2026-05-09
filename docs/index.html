@@ -300,10 +300,15 @@ nav {
 }
 .progress-fill {
   height: 100%;
-  width: 0%;
+  width: 100%;
   background: var(--saffron);
   border-radius: 4px;
-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill { transition: none; }
 }
 .progress-pct {
   font-family: var(--font-display);
@@ -2393,7 +2398,8 @@ table.data-table tr:hover td { background: var(--off-white); }
 /* ─── Progress bar ───────────────────────────────────── */
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.progress-fill').forEach(el => {
-    setTimeout(() => { el.style.width = (el.dataset.target || 0) + '%'; }, 400);
+    const pct = parseFloat(el.dataset.target || 0) / 100;
+    setTimeout(() => { el.style.transform = 'scaleX(' + pct + ')'; }, 400);
   });
 });
 
