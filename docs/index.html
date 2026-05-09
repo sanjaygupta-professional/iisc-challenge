@@ -172,13 +172,18 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
   background: radial-gradient(ellipse 80% 80% at 80% 50%, oklch(32% 0.07 268) 0%, transparent 70%);
   pointer-events: none;
 }
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: clamp(32px, 6vw, 80px);
-  align-items: start;
+#hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, oklch(100% 0 0 / 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
 }
-.hero-text { position: relative; }
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
 .hero-eyebrow {
   font-family: var(--font-display);
   font-size: 0.75rem;
@@ -191,8 +196,8 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 .hero-title-deva {
   font-family: var(--font-deva);
   font-weight: 700;
-  font-size: clamp(52px, 8vw, 96px);
-  line-height: 1;
+  font-size: clamp(64px, 14vw, 128px);
+  line-height: 1.05;
   color: var(--saffron);
   display: block;
   margin-bottom: 4px;
@@ -245,63 +250,10 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 }
 .btn-ghost:hover { border-color: var(--saffron); color: var(--saffron); }
 
-.hero-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-end;
-  padding-top: 8px;
-}
-.hero-badge {
-  text-align: center;
-  padding: 20px 24px;
-  background: oklch(28% 0.06 268);
-  border-radius: 12px;
-  border: 1px solid oklch(38% 0.06 268);
-}
-.hero-badge-num {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  color: var(--saffron);
-  line-height: 1;
-  display: block;
-}
-.hero-badge-label {
-  font-size: 0.72rem;
-  font-weight: 600;
+.hero-count {
+  font-size: 0.82rem;
+  color: var(--pink);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: oklch(65% 0.04 268);
-  display: block;
-  margin-top: 4px;
-}
-.hero-badge-sub {
-  font-size: 0.8rem;
-  color: oklch(58% 0.04 268);
-  margin-top: 8px;
-}
-.hero-prize {
-  text-align: center;
-  padding: 14px 20px;
-  background: oklch(30% 0.06 268);
-  border-radius: 8px;
-  border: 1px solid oklch(42% 0.06 268);
-}
-.hero-prize-num {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--green);
-  line-height: 1;
-}
-.hero-prize-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: oklch(62% 0.04 268);
-  margin-top: 4px;
 }
 
 /* ─── Progress bar ──────────────────────────────────── */
@@ -360,7 +312,7 @@ section { padding: clamp(60px, 10vh, 100px) 0; }
 }
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
   font-weight: 700;
   line-height: 1.08;
   margin-bottom: clamp(28px, 5vh, 48px);
@@ -465,8 +417,27 @@ section { padding: clamp(60px, 10vh, 100px) 0; }
   align-items: start;
   padding: 28px 0 28px 0;
   border-top: 1px solid oklch(32% 0.06 268);
+  position: relative;
+  overflow: hidden;
 }
 .arch-layer:last-child { border-bottom: 1px solid oklch(32% 0.06 268); }
+.arch-layer::before {
+  content: attr(data-num);
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 7rem;
+  font-weight: 700;
+  color: var(--saffron);
+  opacity: 0.07;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.arch-num, .arch-body, .arch-tech { position: relative; z-index: 1; }
 .rf-layout { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem; }
 .rf-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .rf-rag-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
@@ -1276,8 +1247,6 @@ table.data-table tr:hover td { background: var(--off-white); }
   nav.nav-open .nav-links { display: flex; }
   .nav-links a { padding: 13px clamp(20px, 5vw, 60px); font-size: 0.88rem; }
   .nav-deadline { margin-left: 12px; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-meta { flex-direction: row; align-items: flex-start; }
   .arch-layer { grid-template-columns: 40px 1fr; }
   .arch-tech { display: none; }
   .team-grid { grid-template-columns: 1fr; }
@@ -1292,8 +1261,6 @@ table.data-table tr:hover td { background: var(--off-white); }
 }
 @media (max-width: 480px) {
   .india-grid { grid-template-columns: 1fr; }
-  .hero-meta { flex-direction: column; align-items: stretch; }
-  .hero-badge, .hero-prize { text-align: left; }
 }
 </style>
 </head>
@@ -1327,30 +1294,17 @@ table.data-table tr:hover td { background: var(--off-white); }
 <section id="hero" aria-labelledby="hero-title">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-text reveal">
-        <p class="hero-eyebrow">IISc AI Challenge for Healthy Brain Aging · 2026</p>
-        <span class="hero-title-deva" id="hero-title">भारत-Brain</span>
-        <span class="hero-title-latin">BhāratBrain</span>
-        <p class="hero-tagline">
-          Early detection of Alzheimer's and cognitive decline for 1.4 billion Indians,
-          through <strong><abbr title="Accredited Social Health Activist">ASHA</abbr> workers, native languages, and federated AI</strong>
-          that works without MRI scanners.
-        </p>
-        <div class="hero-cta">
-          <a href="#problem" class="btn-primary">Read the brief</a>
-          <a href="https://github.com/sanjaygupta-professional/iisc-challenge" class="btn-ghost" target="_blank" rel="noopener">GitHub repo</a>
-        </div>
-      </div>
-      <div class="hero-meta reveal" style="transition-delay:0.15s">
-        <div class="hero-badge">
-          <span class="hero-badge-num" id="days-count">20</span>
-          <span class="hero-badge-label">Days to deadline</span>
-          <p class="hero-badge-sub">Submit by May 20, 2026</p>
-        </div>
-        <div class="hero-prize">
-          <div class="hero-prize-num">₹2 Cr</div>
-          <div class="hero-prize-label">Research grant prize</div>
-        </div>
+      <p class="hero-eyebrow reveal" data-delay="0">IISc AI Challenge for Healthy Brain Aging · <span class="hero-count"><span id="days-count">20</span> days remaining</span></p>
+      <span class="hero-title-deva reveal" id="hero-title" data-delay="80">भारत-Brain</span>
+      <span class="hero-title-latin reveal" data-delay="160">BhāratBrain</span>
+      <p class="hero-tagline reveal" data-delay="260">
+        Early detection of Alzheimer's and cognitive decline for 1.4 billion Indians,
+        through <strong><abbr title="Accredited Social Health Activist">ASHA</abbr> workers, native languages, and federated AI</strong>
+        that works without MRI scanners.
+      </p>
+      <div class="hero-cta reveal" data-delay="380">
+        <a href="#problem" class="btn-primary">Read the brief</a>
+        <a href="https://github.com/sanjaygupta-professional/iisc-challenge" class="btn-ghost" target="_blank" rel="noopener">GitHub repo</a>
       </div>
     </div>
   </div>
@@ -1689,7 +1643,7 @@ table.data-table tr:hover td { background: var(--off-white); }
 
     <!-- BharatBrain 3-layer summary -->
     <div class="arch-stack reveal" style="margin-bottom:3rem">
-      <div class="arch-layer">
+      <div class="arch-layer" data-num="01">
         <span class="arch-num">01</span>
         <div class="arch-body">
           <p class="arch-label">Idea 3 — Screen</p>
@@ -1702,7 +1656,7 @@ table.data-table tr:hover td { background: var(--off-white); }
           <span class="tech-tag green">≤20 min ASHA protocol</span>
         </div>
       </div>
-      <div class="arch-layer">
+      <div class="arch-layer" data-num="02">
         <span class="arch-num">02</span>
         <div class="arch-body">
           <p class="arch-label">Idea 1 — Prognosticate</p>
@@ -1715,7 +1669,7 @@ table.data-table tr:hover td { background: var(--off-white); }
           <span class="tech-tag saffron">47-model meta-analysis</span>
         </div>
       </div>
-      <div class="arch-layer">
+      <div class="arch-layer" data-num="03">
         <span class="arch-num">03</span>
         <div class="arch-body">
           <p class="arch-label">Idea 7 — Understand</p>
@@ -1985,7 +1939,7 @@ table.data-table tr:hover td { background: var(--off-white); }
     </p>
 
     <div class="arch-stack reveal">
-      <div class="arch-layer">
+      <div class="arch-layer" data-num="01">
         <span class="arch-num">01</span>
         <div class="arch-body">
           <p class="arch-label">Input layer (Option 5)</p>
@@ -1999,7 +1953,7 @@ table.data-table tr:hover td { background: var(--off-white); }
           <span class="tech-tag green">Airavata</span>
         </div>
       </div>
-      <div class="arch-layer">
+      <div class="arch-layer" data-num="02">
         <span class="arch-num">02</span>
         <div class="arch-body">
           <p class="arch-label">Fusion model (Option 1)</p>
@@ -2012,7 +1966,7 @@ table.data-table tr:hover td { background: var(--off-white); }
           <span class="tech-tag saffron">SANSCOG data</span>
         </div>
       </div>
-      <div class="arch-layer">
+      <div class="arch-layer" data-num="03">
         <span class="arch-num">03</span>
         <div class="arch-body">
           <p class="arch-label">Deployment (Options 1 + 3)</p>
