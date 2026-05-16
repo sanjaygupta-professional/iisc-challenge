@@ -1,7 +1,7 @@
 # ScreenBrain: Low-Cost AI Dementia Screening for Rural India via ASHA Networks
 **IISc AI Challenge for Healthy Brain Aging 2026 · Proposal 1 of 2 · Idea 3: Low-Cost Screening**
 
-**Team:** Jaya (Lead/Research) · Abhishek (ML Architect) · Sanjay (Strategy/ML) · Harsh (Research/ML)
+**Team:** Jaya (Lead/Research) · Abhishek (ML Architect) · Sanjay (Strategy/ML) · Harsh (Research/ML) · Ashish (Research SME)
 **Deadline:** May 20, 2026
 **Estimated Rubric Score:** ~82/100
 
@@ -138,6 +138,7 @@ Upon SANSCOG Wave 2/3 access: **Model M** (longitudinal conversion prediction) u
 | **Abhishek** | ML Architect | XGBoost model design, SHAP pipeline, TSTR validation, Bayesian hyperparameter search (200–500 trials), MLflow experiment tracking |
 | **Sanjay** | Strategy / ML | SANSCOG access coordination with CBR, stakeholder management, Phase 2 roadmap, scoring alignment |
 | **Harsh** | Research / ML | Feature engineering, SYN-1 synthetic data (CTGAN/SDV), preprocessing pipeline, LASI-DAD integration |
+| **Ashish** | Research SME | Domain expertise: clinical context for dementia risk factors, ASHA workflow validation, confounder identification, research quality review |
 
 ⚠️ **Clinical Expert Gap:** IISc rubric requires ≥1 domain expert. Actively recruiting at NIMHANS Bangalore, St. John's Medical College, and CBR-affiliated neurologists. Collaboration letter before interview stage. Disclosed transparently.
 
