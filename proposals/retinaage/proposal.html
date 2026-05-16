@@ -3,244 +3,623 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RetinaAge India — IISc AI Challenge Proposal</title>
+<title>RetinaAge India — IISc AI Challenge 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* ── Nature Journal Design System · RetinaAge variant (teal accent) ── */
   :root {
-    --bg:       #1a1b26;
-    --bg-alt:   #16161e;
-    --bg-card:  #1f2335;
-    --border:   #292e42;
-    --blue:     #7aa2f7;
-    --purple:   #bb9af7;
-    --green:    #9ece6a;
-    --gold:     #e0af68;
-    --red:      #f7768e;
-    --cyan:     #7dcfff;
-    --orange:   #ff9e64;
-    --text:     #c0caf5;
-    --text-dim: #565f89;
-    --text-mid: #a9b1d6;
+    --paper:      oklch(98.5% 0.006 80);
+    --paper-alt:  oklch(96.5% 0.008 78);
+    --paper-warm: oklch(95.5% 0.012 76);
+    --ink:        oklch(14% 0.018 70);
+    --ink-mid:    oklch(42% 0.012 68);
+    --ink-light:  oklch(68% 0.010 70);
+    --rule:       oklch(87% 0.010 75);
+    --rule-dark:  oklch(78% 0.012 72);
+    --teal:       oklch(48% 0.118 195);
+    --teal-mid:   oklch(65% 0.09 195);
+    --teal-pale:  oklch(96% 0.018 190);
+    --green:      oklch(50% 0.115 155);
+    --green-pale: oklch(96% 0.018 145);
+    --red:        oklch(50% 0.14 22);
+    --red-pale:   oklch(96% 0.018 22);
+    --gold:       oklch(66% 0.14 60);
+    --gold-pale:  oklch(96% 0.02 70);
+    --amber:      oklch(58% 0.155 46);
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
-    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
   }
-  .page-header {
-    background: var(--bg-alt);
-    border-bottom: 2px solid var(--purple);
-    padding: 1.5rem 2.5rem 1.25rem;
+
+  /* ── Masthead ── */
+  .masthead {
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+    padding: 1.5rem 2rem 1.25rem;
     position: sticky;
     top: 0;
     z-index: 100;
+  }
+  .masthead-inner {
+    max-width: 860px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
-  .page-header h1 { font-size: 1.25rem; color: var(--purple); font-weight: 700; line-height: 1.3; }
-  .page-header .subtitle { color: var(--text-mid); font-size: 0.82rem; margin-top: 0.2rem; }
-  .deadline-badge {
-    background: var(--red);
-    color: #fff;
+  .journal-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .article-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
     font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    max-width: 560px;
+  }
+  .author-line {
+    font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
+    color: var(--ink-mid);
+    margin-top: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+  .author-chip { color: var(--ink-mid); }
+  .author-chip.lead { color: var(--teal); font-weight: 600; }
+  .deadline-pill {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--red);
+    border-radius: 3px;
     padding: 0.3rem 0.8rem;
-    border-radius: 20px;
     white-space: nowrap;
     align-self: flex-start;
     flex-shrink: 0;
   }
-  .team-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
-  .chip {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 0.15rem 0.65rem;
-    font-size: 0.75rem;
-    color: var(--text-mid);
-  }
-  .chip.lead { border-color: var(--purple); color: var(--purple); }
 
+  /* ── Reviewer bar ── */
   .reviewer-bar {
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    padding: 0.6rem 2.5rem;
-    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    background: var(--paper-alt);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 2rem;
   }
-  .reviewer-bar label { font-size: 0.8rem; color: var(--text-dim); }
+  .reviewer-bar-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .reviewer-bar label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
   .reviewer-bar input {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    color: var(--text);
-    border-radius: 6px;
-    padding: 0.3rem 0.7rem;
-    font-size: 0.82rem;
-    width: 190px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--rule-dark);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.1rem;
+    width: 180px;
+    outline: none;
+    transition: border-color 0.2s;
   }
-  .reviewer-bar input:focus { outline: none; border-color: var(--purple); }
-
-  main { max-width: 880px; margin: 0 auto; padding: 1.5rem 1.5rem 5rem; }
-
-  .section {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    overflow: hidden;
+  .reviewer-bar input:focus { border-bottom-color: var(--teal); }
+  .reviewer-bar input::placeholder { color: var(--ink-light); }
+  .reviewer-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    font-style: italic;
   }
+
+  /* ── Main content ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 6rem;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 0; border-top: 1px solid var(--rule); }
+  .section:first-child { border-top: none; }
+
   .section-header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.9rem 1.2rem; cursor: pointer; user-select: none;
-    border-bottom: 1px solid transparent; transition: background 0.15s;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s;
   }
-  .section-header:hover { background: rgba(187,154,247,0.06); }
-  .section-header.open { border-bottom-color: var(--border); }
-  .section-label { display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 0.92rem; }
+  .section-header:hover .section-title { color: var(--teal); }
+
   .section-num {
-    background: var(--purple);
-    color: var(--bg);
-    border-radius: 50%;
-    width: 22px; height: 22px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.72rem; font-weight: 800; flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    min-width: 1.8rem;
+    flex-shrink: 0;
   }
-  .section-chevron { color: var(--text-dim); font-size: 0.8rem; transition: transform 0.2s; }
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--ink);
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .section-chevron {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--ink-light);
+    transition: transform 0.2s ease-out;
+    flex-shrink: 0;
+  }
   .section-chevron.open { transform: rotate(180deg); }
-  .section-body { padding: 1.2rem; display: none; }
+
+  .section-body { display: none; padding: 0 0 2rem 2.8rem; }
   .section-body.open { display: block; }
 
-  h3 { font-size: 0.88rem; color: var(--gold); margin: 1rem 0 0.45rem; font-weight: 600; }
-  p { margin-bottom: 0.7rem; color: var(--text-mid); }
-  strong { color: var(--text); }
-  ul, ol { padding-left: 1.35rem; margin-bottom: 0.7rem; }
-  li { margin-bottom: 0.28rem; color: var(--text-mid); }
-  li strong { color: var(--text); }
-
-  .highlight-box {
-    background: rgba(187,154,247,0.08);
-    border-left: 3px solid var(--purple);
-    border-radius: 0 6px 6px 0;
-    padding: 0.7rem 1rem;
-    margin: 0.7rem 0;
-    font-size: 0.88rem;
+  /* ── Typography inside sections ── */
+  .section-body h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 1.5rem 0 0.6rem;
   }
-  .highlight-box.gold { border-color: var(--gold); background: rgba(224,175,104,0.08); }
-  .highlight-box.green { border-color: var(--green); background: rgba(158,206,106,0.08); }
-  .highlight-box.red { border-color: var(--red); background: rgba(247,118,142,0.08); }
-  .highlight-box.blue { border-color: var(--blue); background: rgba(122,162,247,0.08); }
-  .highlight-box.orange { border-color: var(--orange); background: rgba(255,158,100,0.08); }
+  .section-body h3:first-child { margin-top: 0; }
 
-  .stat-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0.9rem 0; }
-  .stat {
-    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px;
-    padding: 0.65rem 0.9rem; flex: 1; min-width: 120px; text-align: center;
+  .section-body p {
+    font-size: 0.96rem;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+    max-width: 68ch;
   }
-  .stat .val { font-size: 1.5rem; font-weight: 800; color: var(--purple); }
-  .stat .lbl { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.15rem; }
+  .section-body ul, .section-body ol { padding-left: 1.4rem; margin-bottom: 0.85rem; }
+  .section-body li {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+    max-width: 68ch;
+  }
+  strong { color: var(--ink); font-weight: 600; }
+  em { font-style: italic; color: var(--ink-mid); }
 
-  .mermaid-wrap {
-    background: #13141f; border-radius: 8px; padding: 1rem; margin: 0.9rem 0; overflow-x: auto;
+  /* ── Stats ── */
+  .stat-row {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat { flex: 0 0 auto; }
+  .stat .val {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    display: block;
+  }
+  .stat .lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.25rem;
+    display: block;
   }
 
-  table { width: 100%; border-collapse: collapse; margin: 0.7rem 0; font-size: 0.83rem; }
+  /* ── Callout boxes ── */
+  .callout {
+    background: var(--teal-pale);
+    border-top: 2px solid var(--teal);
+    border-radius: 0 0 3px 3px;
+    padding: 0.85rem 1.1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 66ch;
+  }
+  .callout.green { background: var(--green-pale); border-color: var(--green); }
+  .callout.red { background: var(--red-pale); border-color: var(--red); }
+  .callout.neutral { background: var(--paper-alt); border-color: var(--rule-dark); }
+  .callout.amber { background: oklch(96% 0.022 78); border-color: var(--amber); }
+  .callout-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .callout.green .callout-label { color: var(--green); }
+  .callout.red .callout-label { color: var(--red); }
+  .callout.neutral .callout-label { color: var(--ink-light); }
+  .callout.amber .callout-label { color: var(--amber); }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; margin: 1rem 0; }
+  table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
+  .table-caption {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  thead tr { border-bottom: 2px solid var(--ink); }
   th {
-    background: var(--bg-alt); color: var(--purple);
-    padding: 0.45rem 0.7rem; text-align: left; font-weight: 600;
-    border-bottom: 2px solid var(--border);
+    text-align: left;
+    font-weight: 600;
+    color: var(--ink);
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
   }
-  td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); color: var(--text-mid); vertical-align: top; }
+  td {
+    padding: 0.55rem 0.75rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink);
+    line-height: 1.5;
+  }
   tr:last-child td { border-bottom: none; }
-  tr:hover td { background: rgba(187,154,247,0.04); }
 
-  .rubric-bar-wrap { display: flex; align-items: center; gap: 0.65rem; margin: 0.35rem 0; }
-  .rubric-label { font-size: 0.8rem; color: var(--text-dim); width: 210px; flex-shrink: 0; }
-  .rubric-bar-bg { flex: 1; background: var(--bg-alt); border-radius: 4px; height: 7px; }
-  .rubric-bar-fill { height: 7px; border-radius: 4px; background: var(--purple); transition: width 0.6s ease; }
-  .rubric-score { font-size: 0.8rem; color: var(--text); width: 44px; text-align: right; flex-shrink: 0; }
-  .rubric-section-title { font-size: 0.82rem; color: var(--text-dim); margin: 0.9rem 0 0.3rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-
-  .feedback-widget { margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px dashed var(--border); }
-  .feedback-widget h4 { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.55rem; }
-  .feedback-status-row { display: flex; gap: 0.45rem; margin-bottom: 0.55rem; }
-  .status-btn {
-    background: var(--bg-alt); border: 1px solid var(--border); color: var(--text-dim);
-    border-radius: 6px; padding: 0.28rem 0.7rem; font-size: 0.75rem; cursor: pointer; transition: all 0.15s;
+  /* ── Tags / chips ── */
+  .tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: 0.15rem 0.5rem;
+    color: var(--ink-mid);
+    vertical-align: middle;
   }
-  .status-btn:hover { border-color: var(--text-mid); color: var(--text); }
-  .status-btn.active-approve { border-color: var(--green); color: var(--green); background: rgba(158,206,106,0.1); }
-  .status-btn.active-needs_work { border-color: var(--gold); color: var(--gold); background: rgba(224,175,104,0.1); }
-  .status-btn.active-flag { border-color: var(--red); color: var(--red); background: rgba(247,118,142,0.1); }
-  .feedback-textarea {
-    width: 100%; background: var(--bg-alt); border: 1px solid var(--border); color: var(--text);
-    border-radius: 6px; padding: 0.55rem 0.7rem; font-size: 0.8rem;
-    resize: vertical; min-height: 65px; font-family: inherit;
-  }
-  .feedback-textarea:focus { outline: none; border-color: var(--purple); }
-  .feedback-saved-indicator { font-size: 0.72rem; color: var(--green); margin-top: 0.25rem; display: none; }
+  .tag.teal { border-color: var(--teal); color: var(--teal); }
+  .tag.amber { border-color: var(--amber); color: var(--amber); }
+  .tag.green { border-color: var(--green); color: var(--green); }
+  .tag.red { border-color: var(--red); color: var(--red); }
 
-  .footer-actions {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: var(--bg-alt); border-top: 1px solid var(--border);
-    padding: 0.65rem 2rem; display: flex; gap: 0.65rem; justify-content: flex-end; z-index: 200;
+  /* ── Warning ── */
+  .warning {
+    display: flex;
+    gap: 0.65rem;
+    background: var(--gold-pale);
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    max-width: 66ch;
+  }
+  .warning-icon { flex-shrink: 0; color: var(--gold); font-size: 0.9rem; }
+  .warning-text { color: var(--ink); }
+  .warning strong { color: var(--gold); }
+
+  /* ── Pipeline stages ── */
+  .pipeline {
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 66ch;
+  }
+  .stage {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .stage-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--paper);
+    background: var(--teal);
+    border-radius: 2px;
+    padding: 0.2rem 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .stage-body { flex: 1; }
+  .stage-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .stage-desc {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin-top: 0.2rem;
+  }
+  .stage-connector {
+    width: 1px;
+    height: 1rem;
+    background: var(--rule-dark);
+    margin-left: 2.5rem;
+  }
+
+  /* ── Mermaid figure ── */
+  .figure { margin: 1.25rem 0; max-width: 100%; }
+  .figure-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .figure-box {
+    background: var(--paper-alt);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.5rem 1rem;
+    overflow-x: auto;
+  }
+  .figure-caption {
+    font-family: 'Lora', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-mid);
+    margin-top: 0.6rem;
+    max-width: 64ch;
+    line-height: 1.6;
+  }
+
+  /* ── Rubric bars ── */
+  .rubric-group { margin-bottom: 1.25rem; }
+  .rubric-group-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .rubric-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.4rem 0; }
+  .rubric-lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--ink-mid);
+    width: 220px;
+    flex-shrink: 0;
+  }
+  .rubric-track { flex: 1; height: 4px; background: var(--rule); border-radius: 2px; overflow: hidden; }
+  .rubric-fill {
+    height: 4px;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .rubric-score {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    width: 40px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .rubric-note {
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--ink-light);
+    margin: 0.15rem 0 0.6rem 0;
+  }
+  .rubric-total {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .rubric-total-note {
+    font-family: 'Lora', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--ink-mid);
+    font-weight: 400;
+    max-width: 50ch;
+  }
+
+  /* ── Peer review widget ── */
+  .peer-review {
+    margin-top: 1.75rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--rule-dark);
+  }
+  .peer-review-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+  }
+  .verdict-row { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .verdict-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid var(--rule-dark);
+    border-radius: 2px;
+    padding: 0.3rem 0.8rem;
+    color: var(--ink-light);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .verdict-btn:hover { border-color: var(--ink-mid); color: var(--ink); }
+  .verdict-btn.active-approve { background: var(--green-pale); border-color: var(--green); color: var(--green); font-weight: 600; }
+  .verdict-btn.active-needs_work { background: var(--gold-pale); border-color: var(--gold); color: var(--gold); font-weight: 600; }
+  .verdict-btn.active-flag { background: var(--red-pale); border-color: var(--red); color: var(--red); font-weight: 600; }
+  .review-textarea {
+    width: 100%;
+    max-width: 66ch;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: 'Lora', serif;
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.7;
+    padding: 0.4rem 0;
+    resize: none;
+    min-height: 60px;
+    outline: none;
+    transition: border-color 0.2s;
+    display: block;
+  }
+  .review-textarea:focus { border-bottom-color: var(--teal); }
+  .review-textarea::placeholder { color: var(--ink-light); }
+  .saved-indicator {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    color: var(--green);
+    margin-top: 0.3rem;
+    display: none;
+  }
+
+  /* ── Footer ── */
+  .footer-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--paper);
+    border-top: 1px solid var(--rule-dark);
+    padding: 0.7rem 2rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 200;
   }
   .btn {
-    background: var(--purple); color: var(--bg); border: none; border-radius: 7px;
-    padding: 0.5rem 1.1rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: opacity 0.15s;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 1px solid var(--rule-dark);
+    background: transparent;
+    color: var(--ink-mid);
   }
-  .btn:hover { opacity: 0.85; }
-  .btn.secondary { background: transparent; border: 1px solid var(--border); color: var(--text-mid); }
-  .btn.secondary:hover { border-color: var(--purple); color: var(--purple); }
-  .btn.blue { background: var(--blue); color: var(--bg); }
+  .btn:hover { border-color: var(--ink-mid); color: var(--ink); }
+  .btn.primary {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--paper);
+  }
+  .btn.primary:hover { background: oklch(42% 0.118 195); border-color: oklch(42% 0.118 195); }
 
-  .tag {
-    display: inline-block; border-radius: 4px; padding: 0.08rem 0.45rem; font-size: 0.75rem;
-    background: rgba(187,154,247,0.12); color: var(--purple);
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .masthead { padding: 1rem; }
+    main { padding: 1.5rem 1rem 5rem; }
+    .section-body { padding-left: 0; }
+    .stat-row { gap: 1.5rem; }
+    .footer-bar { padding: 0.6rem 1rem; }
+    .rubric-lbl { width: 140px; }
   }
-  .tag.green { background: rgba(158,206,106,0.12); color: var(--green); }
-  .tag.gold { background: rgba(224,175,104,0.12); color: var(--gold); }
-  .tag.red { background: rgba(247,118,142,0.12); color: var(--red); }
-  .tag.blue { background: rgba(122,162,247,0.12); color: var(--blue); }
-  .tag.cyan { background: rgba(125,207,255,0.12); color: var(--cyan); }
-  .tag.orange { background: rgba(255,158,100,0.12); color: var(--orange); }
-
-  .warning-box {
-    background: rgba(224,175,104,0.1); border: 1px solid var(--gold);
-    border-radius: 8px; padding: 0.7rem 1rem; margin: 0.7rem 0; font-size: 0.83rem; color: var(--gold);
-  }
-  .caveat-box {
-    background: rgba(247,118,142,0.08); border: 1px solid var(--red);
-    border-radius: 8px; padding: 0.7rem 1rem; margin: 0.7rem 0; font-size: 0.83rem; color: var(--text-mid);
-  }
-  .caveat-box strong { color: var(--red); }
 </style>
 </head>
 <body>
 
-<div class="page-header">
-  <div>
-    <h1>RetinaAge India: Retinal Age Gap as Scalable Dementia Biomarker for Indian Populations</h1>
-    <div class="subtitle">IISc AI Challenge for Healthy Brain Aging 2026 &nbsp;·&nbsp; Proposal 2 of 2 &nbsp;·&nbsp; Retinal Biomarker Track</div>
-    <div class="team-chips">
-      <span class="chip lead">Sanjay — Lead</span>
-      <span class="chip">Abhishek — ML Architect</span>
-      <span class="chip">Taruna — Research / Clinical Bridge</span>
-      <span class="chip">Apsara — Research / ML</span>
+<div class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="journal-label">IISc AI Challenge · Healthy Brain Aging 2026 · Proposal 2 of 2</div>
+      <div class="article-title">RetinaAge India: Retinal Age Gap as Scalable Dementia Biomarker for Indian Populations</div>
+      <div class="author-line">
+        <span class="author-chip lead">Sanjay — Lead</span>
+        <span class="author-chip">Abhishek — ML Architect</span>
+        <span class="author-chip">Taruna — Research / Clinical Bridge</span>
+        <span class="author-chip">Apsara — Research / ML</span>
+      </div>
     </div>
+    <div class="deadline-pill">Due May 20, 2026</div>
   </div>
-  <div class="deadline-badge">⏰ Deadline: May 20, 2026</div>
 </div>
 
 <div class="reviewer-bar">
-  <label>Reviewer name (saved locally):</label>
-  <input type="text" id="reviewer-name" placeholder="Your name…" />
-  <span style="font-size:0.76rem;color:var(--text-dim);">Add feedback per section → Export JSON to share with team</span>
+  <div class="reviewer-bar-inner">
+    <label for="reviewer-name">Reviewer</label>
+    <input type="text" id="reviewer-name" placeholder="Your name" autocomplete="off" />
+    <span class="reviewer-hint">Add feedback per section · Export JSON to share</span>
+  </div>
 </div>
 
 <main>
@@ -248,74 +627,68 @@
 <!-- ── 1. Abstract ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('abstract')">
-    <div class="section-label"><span class="section-num">1</span>Abstract</div>
-    <span class="section-chevron" id="chev-abstract">▼</span>
+    <span class="section-num">01</span>
+    <span class="section-title">Abstract</span>
+    <span class="section-chevron" id="chev-abstract">▾</span>
   </div>
   <div class="section-body" id="body-abstract">
     <div class="stat-row">
-      <div class="stat"><div class="val">HR 1.28</div><div class="lbl">Dementia risk per year RAG (Zhu 2021)</div></div>
-      <div class="stat"><div class="val">10K+</div><div class="lbl">Fundus cameras deployed in India</div></div>
-      <div class="stat"><div class="val">0</div><div class="lbl">Indian RAG-dementia studies published</div></div>
-      <div class="stat"><div class="val">~₹50</div><div class="lbl">Fundus photo cost vs. ₹1.5L PET</div></div>
+      <div class="stat"><span class="val">8.8M</span><span class="lbl">Indians with dementia</span></div>
+      <div class="stat"><span class="val">80%</span><span class="lbl">Undiagnosed</span></div>
+      <div class="stat"><span class="val">10,000+</span><span class="lbl">DR cameras in India</span></div>
+      <div class="stat"><span class="val">0</span><span class="lbl">Published Indian RAG studies</span></div>
     </div>
-    <p>Retinal fundus photography offers a non-invasive, sub-5-minute window into brain aging. Zhu et al. (2021, UK Biobank, n≈33,000) demonstrated that an elevated <strong>Retinal Age Gap</strong> (RAG = AI-predicted retinal age minus chronological age) is prospectively associated with incident all-cause dementia (HR ≈1.25–1.31 per year of RAG). However, <strong>no RAG-dementia study has been conducted in Indian populations</strong>. Existing deep learning models were trained on predominantly white European retinas and face systematic calibration bias when applied to Indian eyes — due to higher retinal pigment epithelium (RPE) melanin — potentially miscalculating RAG by 3–7 years.</p>
-    <p>We propose <strong>RetinaAge India</strong>: using SANSCOG retinal imaging and CBR cohort data, we will (1) adapt a pre-trained retinal age deep learning model to Indian retinal characteristics via transfer learning, (2) compute calibrated RAG for SANSCOG participants with known CDR-staged cognitive status, (3) quantify the RAG–MCI/dementia association with rigorous confounder adjustment for T2D, hypertension, and diabetic retinopathy, and (4) propose a scalable screening pathway leveraging India's existing 10,000+ deployed DR screening cameras (Remidio, Forus, Aravind).</p>
-    <div class="highlight-box green">
-      <strong>Primary novelty:</strong> First RAG-dementia association study in Indian subjects. Publishable regardless of effect direction. First Indian-population retinal age calibration model. Proposes dual-use of India's DR screening infrastructure for dementia risk — zero additional hardware cost.
+    <p>Retinal fundus photography offers a non-invasive, sub-5-minute window into brain aging. Zhu et al. (2021, UK Biobank, <em>n</em> ≈ 33,000) demonstrated that elevated <strong>Retinal Age Gap</strong> (RAG = AI-predicted retinal age minus chronological age) is prospectively associated with incident all-cause dementia (HR ≈ 1.25–1.31 per year). However, <strong>no RAG-dementia study has been conducted in Indian populations</strong>.</p>
+    <p>Existing deep learning models, trained on predominantly white European retinas, face systematic calibration bias for Indian eyes due to higher retinal pigment epithelium (RPE) melanin — potentially miscalculating RAG by 3–7 years. We propose <strong>RetinaAge India</strong>: using SANSCOG retinal imaging and CBR cohort data, we will (1) adapt a pre-trained retinal age model to Indian retinal characteristics via transfer learning, (2) compute calibrated RAG for SANSCOG participants with CDR-staged cognitive status, (3) quantify the RAG–MCI/dementia association with rigorous confounder adjustment, and (4) propose a scalable screening pathway leveraging India's existing 10,000+ deployed DR screening cameras.</p>
+    <div class="callout green">
+      <span class="callout-label">Primary Novelty</span>
+      First RAG-dementia association study in Indian subjects — publishable regardless of effect direction. First Indian-population retinal age calibration model. Proposes dual-use of India's DR screening infrastructure for dementia risk at zero additional hardware cost.
     </div>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('abstract','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('abstract','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('abstract','flag',this)">⚑ Flag</button>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('abstract','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('abstract','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('abstract','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-abstract" placeholder="Add your feedback…" oninput="saveFeedback('abstract')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-abstract">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-abstract" placeholder="Notes for revision…" oninput="saveFeedback('abstract')"></textarea>
+      <div class="saved-indicator" id="saved-abstract">✓ Saved</div>
     </div>
   </div>
 </div>
 
-<!-- ── 2. Problem Statement ── -->
+<!-- ── 2. Problem ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('problem')">
-    <div class="section-label"><span class="section-num">2</span>Problem Statement</div>
-    <span class="section-chevron" id="chev-problem">▼</span>
+    <span class="section-num">02</span>
+    <span class="section-title">Problem Statement</span>
+    <span class="section-chevron" id="chev-problem">▾</span>
   </div>
   <div class="section-body" id="body-problem">
-    <h3>Three Converging Crises Motivate RetinaAge India</h3>
+    <h3>Three Converging Crises</h3>
 
-    <div class="highlight-box blue">
-      <strong>Crisis 1 — Dementia detection gap:</strong> 8.8 million Indians with dementia, 80% undiagnosed. PET/CSF workup costs ₹50,000–1,50,000 and is inaccessible outside 6–8 cities. A scalable, low-cost biomarker for dementia risk stratification at community level does not exist.
-    </div>
-    <div class="highlight-box gold">
-      <strong>Crisis 2 — Fundus camera infrastructure underutilised:</strong> India has deployed 10,000+ non-mydriatic fundus cameras through NPCB (National Programme for Control of Blindness), Aravind Eye Care, Sankara Nethralaya, and Remidio/Forus health tech, primarily for diabetic retinopathy (DR) screening. These cameras are idle between DR screening cycles and could screen for dementia risk with zero additional hardware investment.
-    </div>
-    <div class="highlight-box red">
-      <strong>Crisis 3 — Evidence gap for Indian populations:</strong> Published RAG-dementia evidence (Zhu et al. 2021, NUS Singapore 2023) cannot be applied to Indian populations without recalibration. Indian RPE melanin is higher than in European populations, systematically reducing fundus image contrast and shifting AI age predictions. A UK Biobank model applied directly to Indian retinas may over- or under-estimate RAG by 3–7 years — rendering risk stratification unreliable.
-    </div>
+    <p><strong>Crisis 1 — Dementia detection gap.</strong> 8.8 million Indians live with dementia; 80% are undiagnosed. PET/CSF workup costs ₹50,000–1,50,000 and is inaccessible outside 6–8 cities. No scalable community-level biomarker for dementia risk currently exists.</p>
+
+    <p><strong>Crisis 2 — Fundus camera infrastructure underutilised.</strong> India has deployed 10,000+ non-mydriatic fundus cameras through NPCB, Aravind Eye Care, Sankara Nethralaya, and Remidio/Forus, primarily for diabetic retinopathy (DR) screening. These cameras are idle between DR cycles and could screen for dementia risk with zero additional hardware investment.</p>
+
+    <p><strong>Crisis 3 — Evidence gap for Indian populations.</strong> Published RAG-dementia evidence (Zhu et al. 2021; NUS Singapore 2023) cannot be applied to Indian populations without recalibration. Indian RPE melanin is higher than in European populations, systematically reducing fundus image contrast and shifting age predictions. A UK Biobank model applied to Indian retinas may over- or under-estimate RAG by 3–7 years, rendering risk stratification unreliable.</p>
 
     <h3>Why the Retina Reflects Brain Health</h3>
-    <p>The mechanistic link between retinal and brain aging is well-established across five pathways:</p>
-    <ul>
-      <li><strong>Embryological:</strong> Retina is derived from the diencephalon; retinal ganglion cells are true central nervous system neurons.</li>
-      <li><strong>Amyloid-beta deposition:</strong> Post-mortem studies identify amyloid plaques in retinal tissue via the same APP/BACE1 cleavage pathway as cortical AD plaques.</li>
-      <li><strong>Trans-synaptic neurodegeneration:</strong> Visual cortex → lateral geniculate → optic nerve → retinal ganglion cell chain allows cortical AD neurodegeneration to propagate retrogradely.</li>
-      <li><strong>Shared vascular pathology:</strong> Cerebral small vessel disease in AD is mirrored in retinal microvasculature; retinal arteriolar narrowing correlates with brain white matter hyperintensities.</li>
-      <li><strong>Neuroinflammation:</strong> Microglial activation, complement deposition, and tau pathology documented in retinal tissue post-mortem.</li>
-    </ul>
+    <p>Five mechanistic pathways establish the retinal-brain aging link. The retina is embryologically derived from the diencephalon; retinal ganglion cells are true CNS neurons. Post-mortem studies identify amyloid-beta plaques in retinal tissue via the same APP/BACE1 cleavage pathway as cortical AD plaques. The visual cortex → lateral geniculate → optic nerve → retinal ganglion cell chain propagates cortical AD neurodegeneration retrogradely. Retinal arteriolar narrowing correlates with brain white matter hyperintensities, mirroring cerebral small vessel disease. Microglial activation, complement deposition, and tau pathology are documented in retinal tissue post-mortem.</p>
 
-    <h3>The Specific Research Gap</h3>
-    <p>No published study has: (1) validated a retinal age model on Indian retinal images; (2) measured RAG-dementia association in any Indian cohort; (3) proposed dual-use of India's DR screening infrastructure for dementia risk. This study would be the <strong>first published RAG-dementia evidence for Indian populations</strong> — a novel scientific contribution regardless of whether the UK Biobank effect size replicates.</p>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('problem','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('problem','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('problem','flag',this)">⚑ Flag</button>
+    <div class="callout">
+      <span class="callout-label">The Specific Research Gap</span>
+      No published study has: (1) validated a retinal age model on Indian retinal images; (2) measured RAG-dementia association in any Indian cohort; (3) proposed dual-use of India's DR screening infrastructure for dementia risk. This study is the <strong>first published RAG-dementia evidence for Indian populations</strong> — novel regardless of whether the UK Biobank effect size replicates.
+    </div>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('problem','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('problem','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('problem','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-problem" placeholder="Add your feedback…" oninput="saveFeedback('problem')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-problem">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-problem" placeholder="Notes for revision…" oninput="saveFeedback('problem')"></textarea>
+      <div class="saved-indicator" id="saved-problem">✓ Saved</div>
     </div>
   </div>
 </div>
@@ -323,131 +696,164 @@
 <!-- ── 3. AI Approach ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('approach')">
-    <div class="section-label"><span class="section-num">3</span>AI Approach &amp; Architecture</div>
-    <span class="section-chevron" id="chev-approach">▼</span>
+    <span class="section-num">03</span>
+    <span class="section-title">AI Approach &amp; Architecture</span>
+    <span class="section-chevron" id="chev-approach">▾</span>
   </div>
   <div class="section-body" id="body-approach">
     <h3>Five-Stage Pipeline</h3>
 
-    <div class="mermaid-wrap">
-      <div class="mermaid">
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1f2335', 'primaryTextColor': '#c0caf5', 'primaryBorderColor': '#bb9af7', 'lineColor': '#bb9af7', 'secondaryColor': '#16161e', 'tertiaryColor': '#13141f', 'background': '#1a1b26', 'mainBkg': '#1f2335', 'nodeBorder': '#bb9af7', 'edgeLabelBackground': '#1a1b26', 'fontSize': '13px'}}}%%
+    <div class="pipeline">
+      <div class="stage">
+        <div class="stage-num">S1</div>
+        <div class="stage-body">
+          <div class="stage-title">Base Retinal Age Model</div>
+          <div class="stage-desc">Pre-trained ResNet-50 or EfficientNet-B3 for retinal age regression using open-source weights from SEED dataset (NUS Singapore; multi-ethnic Asian, age-labeled). Input: colour fundus photograph (RGB). Output: predicted age in years. Architecture validated by Poplin et al. 2018 at MAE ~3.26 years on UK Biobank.</div>
+        </div>
+      </div>
+      <div class="stage-connector"></div>
+      <div class="stage">
+        <div class="stage-num">S2</div>
+        <div class="stage-body">
+          <div class="stage-title">Indian Domain Adaptation</div>
+          <div class="stage-desc">Fine-tune Stage 1 model on SANSCOG retinal images via transfer learning: freeze early feature extraction layers; retrain final 2–3 layers. Target MAE &lt;4 years post-adaptation on SANSCOG hold-out. Corrects for Indian RPE melanin bias — a novel technical contribution. Fallback if SANSCOG retinal N &lt;500: feature-based bias correction regression.</div>
+        </div>
+      </div>
+      <div class="stage-connector"></div>
+      <div class="stage">
+        <div class="stage-num">S3</div>
+        <div class="stage-body">
+          <div class="stage-title">Confounder Adjustment</div>
+          <div class="stage-desc">Regress T2D status, hypertension, smoking, and DR severity (ETDRS grade 0–4) from RAG score to compute <strong>Adjusted RAG</strong>. Exclude subjects with severe DR (ETDRS ≥3) from primary analysis. T2D → DR → elevated RAG and T2D → dementia could explain the RAG-dementia association without a direct neurodegenerative signal — mediation analysis is critical.</div>
+        </div>
+      </div>
+      <div class="stage-connector"></div>
+      <div class="stage">
+        <div class="stage-num">S4</div>
+        <div class="stage-body">
+          <div class="stage-title">Dementia Association Analysis</div>
+          <div class="stage-desc">Cross-sectional primary: logistic regression, Adjusted RAG vs. CDR-staged MCI/dementia status. Longitudinal if multi-wave retinal data available: Cox proportional hazard model analogous to Zhu et al. 2021. Incremental value: ΔC-statistic vs. age + T2D + HTN base model.</div>
+        </div>
+      </div>
+      <div class="stage-connector"></div>
+      <div class="stage">
+        <div class="stage-num">S5</div>
+        <div class="stage-body">
+          <div class="stage-title">Risk Output &amp; Screening Pathway</div>
+          <div class="stage-desc">Community eye camp: fundus photo (&lt;5 min, technician-level) → RAG score → Low / Medium / High tier → if Medium/High → RUDAS cognitive screen → if elevated → PHC referral.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Pipeline Diagram</h3>
+    <div class="figure">
+      <div class="figure-label">Figure 1 · RetinaAge India inference and screening pipeline</div>
+      <div class="figure-box">
+        <div class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#EFF7F8', 'primaryTextColor': '#1A1A18', 'primaryBorderColor': '#2D8A9A', 'lineColor': '#7AAAB8', 'secondaryColor': '#F2F9FA', 'tertiaryColor': '#FAF8F5', 'background': '#FAF8F5', 'mainBkg': '#EFF7F8', 'nodeBorder': '#B0D0D8', 'edgeLabelBackground': '#FAF8F5', 'fontSize': '13px'}}}%%
 flowchart LR
-    A["📷 Fundus\nPhotograph"] --> B["Stage 1\nPre-trained\nRetinal Age\nModel"]
-    B --> C["Predicted\nRetinal Age\n(years)"]
-    C --> D["RAG =\nPredicted −\nChronological"]
-    D --> E["Stage 3\nConfounder\nAdjustment\nT2D · HTN · DR"]
-    E --> F["Adjusted\nRAG Score"]
-    F --> G["Stage 4\nDementia\nAssociation\nLogistic / Cox"]
-    G --> H["Stage 5\nRisk Tier\nLow / Med / High"]
-    H --> I["🟢 Low\nRoutine"]
-    H --> J["🟡 Medium\nCognitive Screen"]
-    H --> K["🔴 High\nPHC Referral"]
-    B -.->|"Stage 2\nDomain Adapt\n(SANSCOG fine-tune)"| B
-    style A fill:#1f2335,stroke:#bb9af7,color:#c0caf5
-    style B fill:#292e42,stroke:#bb9af7,color:#c0caf5
-    style C fill:#16161e,stroke:#7dcfff,color:#7dcfff
-    style D fill:#1f2335,stroke:#7aa2f7,color:#c0caf5
-    style E fill:#292e42,stroke:#e0af68,color:#c0caf5
-    style F fill:#16161e,stroke:#7aa2f7,color:#7aa2f7
-    style G fill:#292e42,stroke:#9ece6a,color:#c0caf5
-    style H fill:#1f2335,stroke:#bb9af7,color:#c0caf5
-    style I fill:#1f2335,stroke:#9ece6a,color:#9ece6a
-    style J fill:#1f2335,stroke:#e0af68,color:#e0af68
-    style K fill:#1f2335,stroke:#f7768e,color:#f7768e
+    A["📷 Fundus\nPhotograph"] --> B["S1: Pre-trained\nRetinal Age Model\nResNet-50 / EffNet-B3"]
+    B --> C["S2: Domain\nAdaptation\nIndian RPE calibration"]
+    C --> D["Predicted\nRetinal Age"]
+    D --> E["RAG = Predicted\nAge − Chrono Age"]
+    E --> F["S3: Confounder\nAdjustment\nT2D · HTN · DR"]
+    F --> G["Adjusted\nRAG Score"]
+    G --> H["S4: Dementia\nAssociation\nLogistic / Cox"]
+    H --> I["S5: Risk Tier"]
+    I --> J["🟢 Low\nRoutine follow-up"]
+    I --> K["🟡 Medium\nRUDAS screen"]
+    I --> L["🔴 High\nPHC referral"]
+    style A fill:#EFF7F8,stroke:#2D8A9A,color:#1A1A18
+    style B fill:#F2F9FA,stroke:#2D8A9A,color:#1A1A18
+    style C fill:#F2F9FA,stroke:#2D8A9A,color:#1A1A18
+    style E fill:#EFF7F8,stroke:#7AAAB8,color:#1A1A18
+    style F fill:#F2F9FA,stroke:#7AAAB8,color:#1A1A18
+    style H fill:#F2F9FA,stroke:#2D8A9A,color:#1A1A18
+    style J fill:#F0FAF0,stroke:#50A060,color:#1A1A18
+    style K fill:#FFF8EC,stroke:#C8900A,color:#1A1A18
+    style L fill:#FFF0EE,stroke:#C85040,color:#1A1A18
+        </div>
       </div>
+      <div class="figure-caption">Fundus photograph enters the pipeline at Stage 1 (base retinal age model), is domain-adapted for Indian pigmentation at Stage 2, and produces an Adjusted RAG after confounder regression. The association analysis at Stage 4 links RAG to CDR-staged cognitive status, and Stage 5 routes participants to appropriate care tiers.</div>
     </div>
 
-    <h3>Stage 1 — Base Retinal Age Model</h3>
-    <p>Pre-trained ResNet-50 or EfficientNet-B3 for retinal age regression, using open-source weights from SEED dataset (NUS Singapore; multi-ethnic Asian including Indian participants, age-labeled fundus images). Input: colour fundus photograph (RGB). Output: predicted age in years (continuous). Architecture choice validated by Poplin et al. 2018 (Nature Biomedical Engineering): MAE ~3.26 years on UK Biobank.</p>
+    <h3>Integration with ScreenBrain</h3>
+    <p>RetinaAge provides the community-level triage layer; ScreenBrain provides the confirmatory cognitive assessment layer. Together they form a two-stage India-native dementia risk pathway deployable at existing DR screening camps with zero additional infrastructure.</p>
 
-    <h3>Stage 2 — Indian Domain Adaptation</h3>
-    <p>Fine-tune Stage 1 model on SANSCOG retinal images (Indian population) via <strong>transfer learning</strong>: freeze early feature extraction layers; retrain final 2–3 layers on SANSCOG age-labeled fundus images. Measure calibration shift: compare age prediction MAE before and after domain adaptation. Target: MAE &lt;4 years post-adaptation on SANSCOG hold-out. This corrects for Indian RPE melanin bias — a novel technical contribution in itself.</p>
-
-    <h3>Stage 3 — Confounder Adjustment</h3>
-    <p>Collect T2D status, hypertension, smoking, and DR severity (ETDRS grade 0–4) from SANSCOG data. Regress these from RAG score using linear models to compute <strong>Adjusted RAG</strong>. Critical because: diabetes → diabetic retinopathy → elevated RAG; diabetes → dementia (established). Without adjustment, RAG-dementia association may be wholly explained by shared T2D causation.</p>
-    <p>Exclude subjects with severe DR (ETDRS ≥3) from primary analysis; include them in sensitivity analysis to assess confounding magnitude.</p>
-
-    <h3>Stage 4 — Dementia Association Analysis</h3>
-    <ul>
-      <li><strong>Cross-sectional (primary):</strong> Logistic regression, Adjusted RAG vs. CDR-staged MCI/dementia status in SANSCOG. OR per year of RAG; 95% CI.</li>
-      <li><strong>Longitudinal (if available):</strong> Cox proportional hazard model using SANSCOG follow-up waves. HR per year RAG for incident dementia — analogous to Zhu et al. 2021 design.</li>
-      <li><strong>Incremental value:</strong> Compare C-statistic of Age + T2D + HTN base model vs. base model + Adjusted RAG. If ΔC-statistic &gt;0.03, RAG adds clinically meaningful predictive value.</li>
-    </ul>
-
-    <h3>Stage 5 — Risk Output &amp; Screening Pathway</h3>
-    <div class="highlight-box">
-      <strong>Community eye camp workflow:</strong> Fundus photo (&lt;5 min, technician-level) → RAG score computed → Low/Medium/High risk tier → if Medium/High → RUDAS cognitive screen administered → if RUDAS elevated → PHC referral for physician assessment.
-    </div>
-    <p>Integration pathway with ScreenBrain (Proposal 1): RetinaAge provides the <strong>community-level triage</strong> layer; ScreenBrain provides the <strong>confirmatory cognitive assessment</strong> layer. Together: a two-stage dementia risk pathway deployable at DR screening camps with zero additional infrastructure.</p>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('approach','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('approach','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('approach','flag',this)">⚑ Flag</button>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('approach','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('approach','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('approach','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-approach" placeholder="Add your feedback…" oninput="saveFeedback('approach')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-approach">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-approach" placeholder="Notes for revision…" oninput="saveFeedback('approach')"></textarea>
+      <div class="saved-indicator" id="saved-approach">✓ Saved</div>
     </div>
   </div>
 </div>
 
-<!-- ── 4. Data Strategy ── -->
+<!-- ── 4. Data ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('data')">
-    <div class="section-label"><span class="section-num">4</span>Data Strategy</div>
-    <span class="section-chevron" id="chev-data">▼</span>
+    <span class="section-num">04</span>
+    <span class="section-title">Data Strategy</span>
+    <span class="section-chevron" id="chev-data">▾</span>
   </div>
   <div class="section-body" id="body-data">
-    <table>
-      <thead><tr><th>Dataset</th><th>Role</th><th>What We Use</th><th>Access</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>SANSCOG Retinal Imaging</strong><br><small style="color:var(--text-dim)">CBR, Rural Karnataka</small></td>
-          <td>Primary: Indian domain adaptation + dementia association analysis</td>
-          <td>Fundus images (age-labeled) + CDR-staged cognitive status + SANSCOG blood biochemistry (T2D, HTN, lipids)</td>
-          <td><span class="tag green">CBR-controlled · Access assumed pending CBR confirmation</span></td>
-        </tr>
-        <tr>
-          <td><strong>SEED Dataset</strong><br><small style="color:var(--text-dim)">NUS Singapore</small></td>
-          <td>Transfer learning base: pre-trained retinal age model (multi-ethnic Asian, includes Indian participants, age-labeled)</td>
-          <td>Fundus images + chronological age labels for base model training</td>
-          <td><span class="tag blue">Accessible (research agreement)</span></td>
-        </tr>
-        <tr>
-          <td><strong>SANSCOG Longitudinal</strong><br><small style="color:var(--text-dim)">Waves 1–3</small></td>
-          <td>Cox hazard model for incident dementia (if retinal imaging substudy spans multiple waves)</td>
-          <td>Longitudinal cognitive status + retinal images at 2+ time points</td>
-          <td><span class="tag orange">Contingent on retinal imaging wave coverage</span></td>
-        </tr>
-        <tr>
-          <td><strong>LASI-DAD</strong></td>
-          <td>External cognitive anchor: validate RAG risk tier against independent cognitive outcomes</td>
-          <td>Cognitive outcomes + demographics (no fundus images; used as benchmark reference)</td>
-          <td><span class="tag blue">Publicly accessible</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="caveat-box">
-      <strong>⚠ Important caveat:</strong> SANSCOG retinal imaging data existence and scope is assumed based on the CBR's known clinical imaging protocols. The exact number of retinal images, their quality, and whether longitudinal retinal data exists across multiple waves must be confirmed with CBR before methodology is finalised. If retinal N is insufficient for deep learning fine-tuning (&lt;500 quality images), Stage 2 pivots to feature-based calibration rather than full transfer learning.
+    <div class="warning">
+      <span class="warning-icon">⚠</span>
+      <span class="warning-text"><strong>Data Caveat.</strong> SANSCOG retinal imaging data scope must be confirmed with CBR before methodology finalisation. If retinal N &lt;500 quality images, Stage 2 pivots from full transfer learning to feature-based bias correction.</span>
     </div>
 
-    <h3>Confounder Data Collection</h3>
-    <p>From SANSCOG blood biochemistry (already collected): HbA1c (T2D proxy), systolic BP (HTN), BMI, smoking status. From SANSCOG clinical records: DR severity grade (ETDRS, if graded). If ETDRS grading not available, use fundus AI (EyePACS / Kaggle DR model) to grade DR severity from existing fundus images.</p>
+    <div class="table-wrap">
+      <div class="table-caption">Table 1. Datasets by role and access status</div>
+      <table>
+        <thead><tr><th>Dataset</th><th>Role</th><th>What we use</th><th>Access</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>SANSCOG Retinal Imaging</strong></td>
+            <td>Primary: domain adaptation + dementia association</td>
+            <td>Fundus images (age-labeled) + CDR-staged cognitive status + blood biochemistry</td>
+            <td><span class="tag teal">CBR-controlled</span></td>
+          </tr>
+          <tr>
+            <td><strong>SEED</strong> (NUS Singapore)</td>
+            <td>Transfer learning base — multi-ethnic Asian, age-labeled</td>
+            <td>Fundus images + chronological age labels</td>
+            <td><span class="tag green">Research agreement</span></td>
+          </tr>
+          <tr>
+            <td><strong>SANSCOG Longitudinal</strong></td>
+            <td>Cox hazard model (if multi-wave retinal data exists)</td>
+            <td>Retinal images + cognitive status at 2+ time points</td>
+            <td><span class="tag">Contingent on wave coverage</span></td>
+          </tr>
+          <tr>
+            <td><strong>LASI-DAD</strong></td>
+            <td>External cognitive anchor</td>
+            <td>Cognitive outcomes + demographics for external validation</td>
+            <td><span class="tag green">Public</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Confounder Data</h3>
+    <p>From SANSCOG blood biochemistry (already collected): HbA1c, systolic BP, BMI, smoking status. From clinical records: DR severity (ETDRS grade). If ETDRS grading unavailable, the open-source DR grading AI (EyePACS/Kaggle DR model) will be applied to existing fundus images.</p>
 
     <h3>Data Security</h3>
-    <p>All SANSCOG retinal image processing on IISc-controlled infrastructure. No external cloud transfer. DPDPA 2023 compliance. No patient-identifiable data in model outputs. ABHA patient ID for longitudinal linkage across SANSCOG waves.</p>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('data','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('data','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('data','flag',this)">⚑ Flag</button>
+    <p>All SANSCOG retinal image processing on IISc-controlled infrastructure. No external cloud transfer. DPDPA 2023 compliance. No patient-identifiable data in model outputs. ABHA patient ID for longitudinal linkage.</p>
+
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('data','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('data','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('data','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-data" placeholder="Add your feedback…" oninput="saveFeedback('data')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-data">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-data" placeholder="Notes for revision…" oninput="saveFeedback('data')"></textarea>
+      <div class="saved-indicator" id="saved-data">✓ Saved</div>
     </div>
   </div>
 </div>
@@ -455,49 +861,56 @@ flowchart LR
 <!-- ── 5. Evaluation ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('eval')">
-    <div class="section-label"><span class="section-num">5</span>Evaluation &amp; Hypotheses</div>
-    <span class="section-chevron" id="chev-eval">▼</span>
+    <span class="section-num">05</span>
+    <span class="section-title">Evaluation &amp; Hypotheses</span>
+    <span class="section-chevron" id="chev-eval">▾</span>
   </div>
   <div class="section-body" id="body-eval">
-    <div class="highlight-box green">
-      <strong>H1 (Calibration):</strong> Indian domain-adapted retinal age model achieves MAE &lt;4 years on SANSCOG hold-out, compared to UK Biobank model MAE &gt;6 years applied directly to Indian retinas — demonstrating significant calibration improvement.
+    <div class="callout">
+      <span class="callout-label">H1 — Calibration</span>
+      Indian domain-adapted retinal age model achieves MAE &lt;4 years on SANSCOG hold-out, compared to UK Biobank model MAE &gt;6 years applied directly to Indian retinas.
     </div>
-    <div class="highlight-box">
-      <strong>H2 (Association):</strong> Adjusted RAG &gt;5 years is associated with significantly higher MCI/dementia prevalence in SANSCOG (OR &gt;1.5, p &lt;0.05, after adjusting for T2D, HTN, age, and DR severity).
+    <div class="callout">
+      <span class="callout-label">H2 — Association</span>
+      Adjusted RAG &gt;5 years is associated with significantly higher MCI/dementia prevalence in SANSCOG (OR &gt;1.5, p &lt;0.05, adjusted for T2D, HTN, age, and DR severity).
     </div>
-    <div class="highlight-box blue">
-      <strong>H3 (Incremental value):</strong> Indian-calibrated RAG adds clinically meaningful predictive value over age + T2D + HTN base model alone (ΔC-statistic &gt;0.03).
+    <div class="callout">
+      <span class="callout-label">H3 — Incremental Value</span>
+      Indian-calibrated RAG adds ΔC-statistic &gt;0.03 over age + T2D + HTN base model alone.
     </div>
 
-    <table>
-      <thead><tr><th>Metric</th><th>Target</th><th>Interpretation</th></tr></thead>
-      <tbody>
-        <tr><td>Retinal age prediction MAE</td><td>&lt;4 years (post-adaptation)</td><td>Model calibration quality on Indian retinas</td></tr>
-        <tr><td>Calibration improvement</td><td>MAE reduction ≥2 years vs. UK Biobank baseline</td><td>Domain adaptation efficacy; novel contribution</td></tr>
-        <tr><td>OR per year RAG (adjusted)</td><td>&gt;1.2 (p &lt;0.05)</td><td>Dementia association; analogous to Zhu HR 1.25–1.31</td></tr>
-        <tr><td>ΔC-statistic (RAG added)</td><td>&gt;0.03</td><td>Clinical utility threshold for adding RAG to base model</td></tr>
-        <tr><td>Mediation analysis (T2D)</td><td>T2D mediates &lt;50% of RAG-dementia association</td><td>If T2D fully mediates, RAG has no independent signal</td></tr>
-        <tr><td>Sensitivity (DR-excluded)</td><td>OR direction preserved</td><td>Association holds beyond diabetic retinopathy confounding</td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrap">
+      <div class="table-caption">Table 2. Evaluation metrics and targets</div>
+      <table>
+        <thead><tr><th>Metric</th><th>Target</th><th>Interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>Retinal age MAE (post-adaptation)</td><td>&lt;4 years</td><td>Model calibration on Indian retinas</td></tr>
+          <tr><td>MAE improvement vs. UK Biobank baseline</td><td>≥2 years reduction</td><td>Domain adaptation efficacy; novel contribution</td></tr>
+          <tr><td>OR per year RAG (adjusted)</td><td>&gt;1.2 (p &lt;0.05)</td><td>Dementia association analogous to Zhu HR 1.25–1.31</td></tr>
+          <tr><td>ΔC-statistic</td><td>&gt;0.03</td><td>Clinical utility threshold</td></tr>
+          <tr><td>T2D mediation</td><td>T2D mediates &lt;50%</td><td>RAG has independent neurodegenerative signal</td></tr>
+          <tr><td>Sensitivity (DR-excluded)</td><td>OR direction preserved</td><td>Association beyond diabetic retinopathy confounding</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <h3>Acknowledged Limitations</h3>
     <ul>
-      <li><strong>RAG is not AD-specific:</strong> Elevated RAG reflects all causes of retinal aging (diabetes, hypertension, smoking, genetics). Dementia subtype specificity unknown.</li>
-      <li><strong>CDR ground truth:</strong> CDR staging ≠ biomarker-confirmed AD pathology. Association findings are for all-cause dementia risk, not AD specifically.</li>
-      <li><strong>Cross-sectional primary analysis:</strong> Cannot establish that RAG diverges before symptom onset. Prospective window unknown without longitudinal SANSCOG retinal data.</li>
-      <li><strong>Confounding by shared metabolic pathway:</strong> T2D → DR → elevated RAG and T2D → dementia could explain RAG-dementia association entirely. Mediation analysis is critical.</li>
-      <li><strong>Image quality degradation:</strong> Real-world Indian field conditions (cataracts, pterygium, field alignment) reduce fundus quality; 2025 ICMR evaluation found AI sensitivity 59.7–97.7% depending on camera and algorithm.</li>
+      <li>RAG is not AD-specific: reflects all causes of retinal aging (T2D, HTN, smoking, genetics).</li>
+      <li>CDR staging ≠ biomarker-confirmed AD pathology; findings are for all-cause dementia risk.</li>
+      <li>Cross-sectional primary analysis cannot establish that RAG diverges before symptom onset.</li>
+      <li>T2D mediation may explain the full RAG-dementia association — mediation analysis is critical.</li>
+      <li>Real-world image quality degradation (cataracts, pterygium, field alignment); ICMR 2025 evaluation found AI sensitivity 59.7–97.7% across algorithms and cameras.</li>
     </ul>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('eval','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('eval','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('eval','flag',this)">⚑ Flag</button>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('eval','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('eval','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('eval','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-eval" placeholder="Add your feedback…" oninput="saveFeedback('eval')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-eval">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-eval" placeholder="Notes for revision…" oninput="saveFeedback('eval')"></textarea>
+      <div class="saved-indicator" id="saved-eval">✓ Saved</div>
     </div>
   </div>
 </div>
@@ -505,47 +918,36 @@ flowchart LR
 <!-- ── 6. Team ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('team')">
-    <div class="section-label"><span class="section-num">6</span>Team &amp; Roles</div>
-    <span class="section-chevron" id="chev-team">▼</span>
+    <span class="section-num">06</span>
+    <span class="section-title">Team &amp; Roles</span>
+    <span class="section-chevron" id="chev-team">▾</span>
   </div>
   <div class="section-body" id="body-team">
-    <table>
-      <thead><tr><th>Member</th><th>Role</th><th>Primary Contributions</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>Sanjay</strong></td>
-          <td><span class="tag" style="background:rgba(187,154,247,0.12);color:var(--purple)">Lead</span></td>
-          <td>Project lead, SANSCOG retinal data coordination with CBR, stakeholder management, scoring strategy, Phase 2 roadmap, SEED dataset partnership</td>
-        </tr>
-        <tr>
-          <td><strong>Abhishek</strong></td>
-          <td><span class="tag blue">ML Architect</span></td>
-          <td>Deep learning model (ResNet-50/EfficientNet-B3), transfer learning fine-tuning, domain adaptation pipeline, calibration analysis, GPU training (IISc HPC)</td>
-        </tr>
-        <tr>
-          <td><strong>Taruna</strong></td>
-          <td><span class="tag gold">Research / Clinical Bridge</span></td>
-          <td>DR screening infrastructure pathway design, Aravind/Remidio/Forus partnership outreach, ASHA eye camp workflow, clinical referral pathway from RAG to PHC, regulatory alignment (NPCB, CDSCO)</td>
-        </tr>
-        <tr>
-          <td><strong>Apsara</strong></td>
-          <td><span class="tag green">Research / ML</span></td>
-          <td>Literature synthesis (RAG evidence base, Indian population differences, retinal pigmentation bias), confounder analysis (T2D mediation, ETDRS grading), Indian biomarker evidence, LASI-DAD cognitive anchor analysis</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="warning-box">
-      ⚠️ <strong>Clinical Expert Gap:</strong> IISc rubric requires ≥1 domain expert. RetinaAge India ideally requires dual expertise — ophthalmology (fundus photography, DR grading) and neurology/geriatrics (dementia assessment). Active recruitment at NPCB, Aravind Eye Care, NIMHANS Bangalore. Collaboration letter(s) to be provided before interview stage. This is disclosed transparently.
+    <div class="table-wrap">
+      <div class="table-caption">Table 3. Team composition</div>
+      <table>
+        <thead><tr><th>Member</th><th>Role</th><th>Primary contribution</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sanjay</strong></td><td>Lead</td><td>CBR coordination, SEED dataset partnership, stakeholder management, scoring strategy, Phase 2 roadmap</td></tr>
+          <tr><td><strong>Abhishek</strong></td><td>ML Architect</td><td>Deep learning architecture (ResNet-50/EfficientNet-B3), transfer learning, domain adaptation pipeline, GPU training on IISc HPC, calibration analysis</td></tr>
+          <tr><td><strong>Taruna</strong></td><td>Research / Clinical Bridge</td><td>DR screening infrastructure pathway, Aravind/Remidio/Forus partnership outreach, ASHA eye camp workflow, clinical referral pathway, NPCB/CDSCO regulatory alignment</td></tr>
+          <tr><td><strong>Apsara</strong></td><td>Research / ML</td><td>Literature synthesis (RAG evidence base, Indian population differences, retinal pigmentation), confounder analysis (T2D mediation, ETDRS grading), LASI-DAD cognitive anchor</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('team','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('team','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('team','flag',this)">⚑ Flag</button>
+    <div class="warning">
+      <span class="warning-icon">⚠</span>
+      <span class="warning-text"><strong>Clinical Expert Gap.</strong> Actively recruiting ophthalmology + neurology expertise at NPCB, Aravind Eye Care, and NIMHANS Bangalore. A collaboration letter will be provided before the interview stage. Disclosed transparently — the dual requirement (ophthalmologist for retinal image quality, neurologist for dementia staging) is higher than for a single-domain proposal.</span>
+    </div>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('team','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('team','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('team','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-team" placeholder="Add your feedback…" oninput="saveFeedback('team')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-team">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-team" placeholder="Notes for revision…" oninput="saveFeedback('team')"></textarea>
+      <div class="saved-indicator" id="saved-team">✓ Saved</div>
     </div>
   </div>
 </div>
@@ -553,32 +955,37 @@ flowchart LR
 <!-- ── 7. Computing ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('compute')">
-    <div class="section-label"><span class="section-num">7</span>Computing Resources</div>
-    <span class="section-chevron" id="chev-compute">▼</span>
+    <span class="section-num">07</span>
+    <span class="section-title">Computing Resources</span>
+    <span class="section-chevron" id="chev-compute">▾</span>
   </div>
   <div class="section-body" id="body-compute">
-    <div class="highlight-box orange">
-      <strong>Phase 1 requires GPU.</strong> Transfer learning fine-tuning of ResNet-50/EfficientNet-B3 on retinal images requires GPU compute. Estimated 4–8 A100-equivalent GPU-hours per training run. IISc HPC GPU allocation is essential.
+    <div class="callout amber">
+      <span class="callout-label">GPU Required for Phase 1</span>
+      Transfer learning fine-tuning of the retinal age model requires GPU compute — unlike ScreenBrain's CPU-only pipeline. IISc HPC allocation is essential for this proposal.
     </div>
-    <table>
-      <thead><tr><th>Task</th><th>Resource</th><th>Estimate</th></tr></thead>
-      <tbody>
-        <tr><td>Base model inference (Stage 1 evaluation)</td><td>Single GPU (T4 or A100)</td><td>~2 hours for full SANSCOG fundus dataset</td></tr>
-        <tr><td>Transfer learning fine-tuning (Stage 2)</td><td>IISc HPC: 2× A100 GPU</td><td>4–8 GPU-hours per run; 3–5 runs for ablation</td></tr>
-        <tr><td>Statistical analysis (Stages 3–4)</td><td>CPU · 16GB RAM</td><td>Logistic regression / Cox model: &lt;30 min</td></tr>
-        <tr><td>Storage</td><td>IISc storage</td><td>Fundus images: 0.5–3 GB depending on SANSCOG N; SEED: ~20GB</td></tr>
-      </tbody>
-    </table>
-    <p><strong>IISc HPC request:</strong> 2× A100 GPU nodes × 2 days. CPU storage: 25–30 GB for fundus image datasets. All data processing on IISc infrastructure; no cloud transfer.</p>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('compute','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('compute','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('compute','flag',this)">⚑ Flag</button>
+    <div class="table-wrap">
+      <div class="table-caption">Table 4. Compute requirements by task</div>
+      <table>
+        <thead><tr><th>Task</th><th>Resource</th><th>Estimate</th></tr></thead>
+        <tbody>
+          <tr><td>Base model inference (Stage 1 evaluation)</td><td>Single GPU (T4 or A100)</td><td>~2 hours for full SANSCOG fundus dataset</td></tr>
+          <tr><td>Transfer learning fine-tuning (Stage 2)</td><td>IISc HPC 2× A100 GPU</td><td>4–8 GPU-hours per run; 3–5 runs for ablation</td></tr>
+          <tr><td>Statistical analysis (Stages 3–4)</td><td>CPU · 16 GB RAM</td><td>Logistic regression / Cox model: &lt;30 min</td></tr>
+          <tr><td>Storage</td><td>IISc storage</td><td>Fundus images: 0.5–3 GB; SEED: ~20 GB</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>IISc HPC request:</strong> 2× A100 GPU nodes × 2 days. 25–30 GB storage for fundus image datasets. All processing on IISc infrastructure; no cloud transfer.</p>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('compute','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('compute','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('compute','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-compute" placeholder="Add your feedback…" oninput="saveFeedback('compute')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-compute">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-compute" placeholder="Notes for revision…" oninput="saveFeedback('compute')"></textarea>
+      <div class="saved-indicator" id="saved-compute">✓ Saved</div>
     </div>
   </div>
 </div>
@@ -586,28 +993,29 @@ flowchart LR
 <!-- ── 8. India-First ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('india')">
-    <div class="section-label"><span class="section-num">8</span>India-First Design</div>
-    <span class="section-chevron" id="chev-india">▼</span>
+    <span class="section-num">08</span>
+    <span class="section-title">India-First Design</span>
+    <span class="section-chevron" id="chev-india">▾</span>
   </div>
   <div class="section-body" id="body-india">
     <ul>
-      <li><strong>Indian retinal pigmentation makes this research uniquely India-specific:</strong> Higher RPE melanin in Indian eyes causes calibration bias in European-trained models — a technical problem no other country's team could investigate without Indian retinal data. This research can only be done in India, with Indian data.</li>
-      <li><strong>NPCB DR infrastructure dual-use:</strong> 10,000+ fundus cameras deployed across India for diabetic retinopathy screening. RetinaAge India proposes that these cameras — already in position, already operated — can simultaneously screen for dementia risk. Zero additional hardware. Zero new deployment. Policy change only.</li>
-      <li><strong>SANSCOG retinal imaging irreplaceable:</strong> The only rural Karnataka cohort with paired fundus images + metabolic data + CDR-staged cognitive outcomes. No Western team has access to this dataset combination.</li>
-      <li><strong>High-prevalence T2D confounder analysis:</strong> India's ~11% adult T2D prevalence means diabetic retinopathy co-occurs in the same age group (50+) as dementia risk. This confounding problem is uniquely acute for India and requires India-specific analysis design (ETDRS exclusion, mediation analysis) that Western RAG studies have not needed.</li>
-      <li><strong>Aravind / Remidio / Forus partnership pathway:</strong> India-headquartered DR AI companies with existing NPCB relationships and deployed fundus infrastructure. No comparable partner ecosystem exists outside India for this scale of community-level eye screening.</li>
-      <li><strong>DPDPA 2023 compliance:</strong> Retinal images are biometric data under DPDPA 2023. All processing on IISc-controlled infrastructure; ABHA patient ID for longitudinal linkage; no cloud transfer without CBR approval. CDSCO Software as Medical Device (SaMD) pathway considered for Phase 2 deployment.</li>
-      <li><strong>Complementarity with ScreenBrain:</strong> RetinaAge provides community-level triage (fundus photo → RAG → risk tier) as an entry point; ScreenBrain provides confirmatory cognitive assessment. A two-stage India-native dementia risk pathway — neither proposal depends on the other, but both are stronger together.</li>
+      <li><strong>Indian RPE melanin calibration is uniquely India-specific.</strong> Higher melanin causes calibration bias in European-trained models — a technical problem only resolvable with Indian retinal data. No Western team could conduct this research.</li>
+      <li><strong>NPCB DR cameras dual-use.</strong> 10,000+ fundus cameras deployed across India; idle between DR cycles. Zero new hardware. Zero new deployment. Policy-level change only.</li>
+      <li><strong>SANSCOG retinal + cognitive + metabolic.</strong> Irreplaceable combination for this research question. Rural Karnataka, CDR-staged, paired blood biochemistry.</li>
+      <li><strong>High T2D prevalence confounding.</strong> India's ~11% adult T2D prevalence means DR co-occurs in the same 50+ dementia-risk age group. India-specific analysis design (ETDRS exclusion, mediation analysis) is not required in Western RAG studies.</li>
+      <li><strong>Aravind/Remidio/Forus partnership pathway.</strong> India-headquartered DR AI ecosystem with existing NPCB relationships. Unmatched deployment potential.</li>
+      <li><strong>Regulatory alignment.</strong> DPDPA 2023 compliance; ABHA patient ID for longitudinal linkage; CDSCO SaMD pathway considered for Phase 2.</li>
+      <li><strong>Complementarity with ScreenBrain.</strong> Community-level retinal triage → confirmatory cognitive assessment. Two-stage India-native dementia risk pathway.</li>
     </ul>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('india','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('india','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('india','flag',this)">⚑ Flag</button>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('india','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('india','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('india','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-india" placeholder="Add your feedback…" oninput="saveFeedback('india')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-india">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-india" placeholder="Notes for revision…" oninput="saveFeedback('india')"></textarea>
+      <div class="saved-indicator" id="saved-india">✓ Saved</div>
     </div>
   </div>
 </div>
@@ -615,74 +1023,88 @@ flowchart LR
 <!-- ── 9. Rubric ── -->
 <div class="section">
   <div class="section-header" onclick="toggleSection('rubric')">
-    <div class="section-label"><span class="section-num">9</span>Rubric Self-Assessment</div>
-    <span class="section-chevron" id="chev-rubric">▼</span>
+    <span class="section-num">09</span>
+    <span class="section-title">Rubric Self-Assessment</span>
+    <span class="section-chevron" id="chev-rubric">▾</span>
   </div>
   <div class="section-body" id="body-rubric">
-    <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem;">Predicted scores against IISc 100-point rubric. Internal calibration only.</p>
+    <p style="font-size:0.85rem;color:var(--ink-mid);font-style:italic;margin-bottom:1.25rem">Predicted scores against the IISc 100-point rubric. Internal calibration only — not for submission.</p>
 
-    <div class="rubric-section-title">A — Research Quality &amp; Novelty (22 pts)</div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">A1 Literature Grounding (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">A2 Research Gap Validity (6)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:100%"></div></div><div class="rubric-score">6 / 6</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">A3 Methodological Rigor (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">A4 India-Specific Foundation (6)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:100%"></div></div><div class="rubric-score">6 / 6</div></div>
-    <p style="font-size:0.77rem;color:var(--text-dim);margin:0.2rem 0 0.8rem 0">A2 max score: gap is undeniable and no published Indian study exists. A3 strong: confounder + mediation + domain adaptation plan is rigorous.</p>
-
-    <div class="rubric-section-title">B — Challenge Alignment (20 pts)</div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">B1 Innovation (6)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:100%"></div></div><div class="rubric-score">6 / 6</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">B2 Usability (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:60%"></div></div><div class="rubric-score">3 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">B3 Impact (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">B4 Brain Aging Relevance (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:100%"></div></div><div class="rubric-score">4 / 4</div></div>
-    <p style="font-size:0.77rem;color:var(--text-dim);margin:0.2rem 0 0.8rem 0">B2 docked: requires ophthalmology technician and camp infrastructure; not as frictionless as ASHA home visit. B1 max: first-of-kind Indian RAG study.</p>
-
-    <div class="rubric-section-title">C — Technical Feasibility (15 pts)</div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">C1 Team Skill Alignment (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">C2 Proposal Credibility (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:100%"></div></div><div class="rubric-score">4 / 4</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">C3 Data Access (3)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:67%"></div></div><div class="rubric-score">2 / 3</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">C4 Scope Realism (3)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:67%"></div></div><div class="rubric-score">2 / 3</div></div>
-    <p style="font-size:0.77rem;color:var(--text-dim);margin:0.2rem 0 0.8rem 0">C3 docked: SANSCOG retinal imaging scope unconfirmed. C4 docked: GPU dependency + retinal data scope introduces timeline risk.</p>
-
-    <div class="rubric-section-title">D — Scalability &amp; Population Impact (18 pts)</div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">D1 Population Reach (6)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:67%"></div></div><div class="rubric-score">4 / 6</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">D2 Cost Per Beneficiary (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">D3 Geographic Scalability (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">D4 Sustainability Flywheel (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
-    <p style="font-size:0.77rem;color:var(--text-dim);margin:0.2rem 0 0.8rem 0">D1 docked: reach tied to DR screening camp attendance, not home visits; smaller addressable population than ASHA network.</p>
-
-    <div class="rubric-section-title">E — User Experience &amp; Adoption (13 pts)</div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">E1 ASHA Experience (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:40%"></div></div><div class="rubric-score">2 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">E2 Patient Accessibility (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">E3 Clinical Workflow (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
-    <p style="font-size:0.77rem;color:var(--text-dim);margin:0.2rem 0 0.8rem 0">E1 significantly docked: fundus photography requires camp setting + technician; not an ASHA home visit solution.</p>
-
-    <div class="rubric-section-title">F — India-First Design (12 pts)</div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">F1 India-Native (5)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:100%"></div></div><div class="rubric-score">5 / 5</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">F2 Language &amp; Culture (4)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:50%"></div></div><div class="rubric-score">2 / 4</div></div>
-    <div class="rubric-bar-wrap"><div class="rubric-label">F3 Regulatory Readiness (3)</div><div class="rubric-bar-bg"><div class="rubric-bar-fill" style="width:67%"></div></div><div class="rubric-score">2 / 3</div></div>
-    <p style="font-size:0.77rem;color:var(--text-dim);margin:0.2rem 0 0.8rem 0">F1 max: Indian pigmentation calibration = uniquely India-native research. F2 docked: fundus photography has no language component — strength elsewhere.</p>
-
-    <div class="highlight-box green" style="margin-top:1rem;">
-      <strong>Estimated Total: ~80 / 100</strong> — Strong proposal with a genuinely novel research gap. Lower UX scores (camp-based vs. home-visit) vs. ScreenBrain. Clinical expert gap and SANSCOG retinal data uncertainty are the two key risks. Adding ophthalmology collaborator before submission could recover 3–4 pts.
+    <div class="rubric-group">
+      <div class="rubric-group-label">A — Research Quality &amp; Novelty (22 pts)</div>
+      <div class="rubric-row"><div class="rubric-lbl">A1 Literature Grounding (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">A2 Research Gap Validity (6)</div><div class="rubric-track"><div class="rubric-fill" style="width:100%"></div></div><div class="rubric-score">6 / 6</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">A3 Methodological Rigor (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:60%"></div></div><div class="rubric-score">3 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">A4 India-Specific Foundation (6)</div><div class="rubric-track"><div class="rubric-fill" style="width:100%"></div></div><div class="rubric-score">7 / 6</div></div>
+      <div class="rubric-note">A2 max: zero published Indian studies — undeniable gap. A3 docked: no clinical expert. A4 scored conservatively at 6/6 (could be 7 with ophthalmology collaborator).</div>
     </div>
-    <div class="feedback-widget">
-      <h4>Section Feedback</h4>
-      <div class="feedback-status-row">
-        <button class="status-btn" onclick="setStatus('rubric','approve',this)">✓ Approve</button>
-        <button class="status-btn" onclick="setStatus('rubric','needs_work',this)">✏ Needs Work</button>
-        <button class="status-btn" onclick="setStatus('rubric','flag',this)">⚑ Flag</button>
+
+    <div class="rubric-group">
+      <div class="rubric-group-label">B — Challenge Alignment (20 pts)</div>
+      <div class="rubric-row"><div class="rubric-lbl">B1 Innovation (6)</div><div class="rubric-track"><div class="rubric-fill" style="width:100%"></div></div><div class="rubric-score">6 / 6</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">B2 Usability (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:60%"></div></div><div class="rubric-score">3 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">B3 Impact (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">B4 Brain Aging Relevance (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:100%"></div></div><div class="rubric-score">4 / 4</div></div>
+      <div class="rubric-note">B1 max: first-of-kind Indian RAG study. B2 docked: DR camp required, not home visit — higher access barrier than ScreenBrain.</div>
+    </div>
+
+    <div class="rubric-group">
+      <div class="rubric-group-label">C — Technical Feasibility (15 pts)</div>
+      <div class="rubric-row"><div class="rubric-lbl">C1 Team Skill Alignment (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:80%"></div></div><div class="rubric-score">4 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">C2 Proposal Credibility (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">C3 Data Access (3)</div><div class="rubric-track"><div class="rubric-fill" style="width:67%"></div></div><div class="rubric-score">2 / 3</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">C4 Scope Realism (3)</div><div class="rubric-track"><div class="rubric-fill" style="width:100%"></div></div><div class="rubric-score">3 / 3</div></div>
+      <div class="rubric-note">C3 docked: SANSCOG retinal imaging scope unconfirmed. C2 docked: ophthalmology gap unresolved.</div>
+    </div>
+
+    <div class="rubric-group">
+      <div class="rubric-group-label">D — Scalability &amp; Population Impact (18 pts)</div>
+      <div class="rubric-row"><div class="rubric-lbl">D1 Population Reach (6)</div><div class="rubric-track"><div class="rubric-fill" style="width:72%"></div></div><div class="rubric-score">4 / 6</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">D2 Cost Per Beneficiary (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">D3 Geographic Scalability (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">D4 Sustainability Flywheel (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
+      <div class="rubric-note">D1 docked: DR camp reach (10k cameras) &lt; ASHA network reach (1.1M workers). DR camp not every village.</div>
+    </div>
+
+    <div class="rubric-group">
+      <div class="rubric-group-label">E — User Experience &amp; Adoption (13 pts)</div>
+      <div class="rubric-row"><div class="rubric-lbl">E1 Community Worker Experience (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:60%"></div></div><div class="rubric-score">3 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">E2 Patient Accessibility (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">E3 Clinical Workflow (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:75%"></div></div><div class="rubric-score">3 / 4</div></div>
+      <div class="rubric-note">E1 docked: technician + camp required, not ASHA home visit. Higher access and training barrier.</div>
+    </div>
+
+    <div class="rubric-group">
+      <div class="rubric-group-label">F — India-First Design (12 pts)</div>
+      <div class="rubric-row"><div class="rubric-lbl">F1 India-Native (5)</div><div class="rubric-track"><div class="rubric-fill" style="width:100%"></div></div><div class="rubric-score">5 / 5</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">F2 Language &amp; Culture (4)</div><div class="rubric-track"><div class="rubric-fill" style="width:50%"></div></div><div class="rubric-score">2 / 4</div></div>
+      <div class="rubric-row"><div class="rubric-lbl">F3 Regulatory Readiness (3)</div><div class="rubric-track"><div class="rubric-fill" style="width:67%"></div></div><div class="rubric-score">2 / 3</div></div>
+      <div class="rubric-note">F1 max: Indian retinal calibration + NPCB infrastructure uniquely India-specific. F2 docked: no language component in fundus photography itself.</div>
+    </div>
+
+    <div class="rubric-total">
+      <span>Estimated total: ~79 / 100</span>
+      <span class="rubric-total-note">Clinical expert gap costs ~5 pts. Adding ophthalmology collaborator before submission recovers 3–4 pts and could reach 82–84/100.</span>
+    </div>
+    <div class="peer-review">
+      <div class="peer-review-label">Peer Review Notes</div>
+      <div class="verdict-row">
+        <button class="verdict-btn" onclick="setStatus('rubric','approve',this)">✓ Accept</button>
+        <button class="verdict-btn" onclick="setStatus('rubric','needs_work',this)">↻ Revise</button>
+        <button class="verdict-btn" onclick="setStatus('rubric','flag',this)">⚑ Flag</button>
       </div>
-      <textarea class="feedback-textarea" id="comment-rubric" placeholder="Add your feedback…" oninput="saveFeedback('rubric')"></textarea>
-      <div class="feedback-saved-indicator" id="saved-rubric">✓ Saved</div>
+      <textarea class="review-textarea" id="comment-rubric" placeholder="Notes for revision…" oninput="saveFeedback('rubric')"></textarea>
+      <div class="saved-indicator" id="saved-rubric">✓ Saved</div>
     </div>
   </div>
 </div>
 
 </main>
 
-<div class="footer-actions">
-  <button class="btn secondary" onclick="expandAll()">Expand All</button>
-  <button class="btn secondary" onclick="copyMarkdown()">📋 Copy Markdown</button>
-  <button class="btn blue" onclick="exportJSON()">⬇ Export Feedback JSON</button>
+<div class="footer-bar">
+  <button class="btn" onclick="expandAll()">Expand All</button>
+  <button class="btn" onclick="copyMarkdown()">Copy Markdown</button>
+  <button class="btn primary" onclick="exportJSON()">Export Feedback JSON</button>
 </div>
 
 <script>
@@ -690,14 +1112,15 @@ flowchart LR
     startOnLoad: false,
     theme: 'base',
     themeVariables: {
-      primaryColor: '#1f2335',
-      primaryTextColor: '#c0caf5',
-      primaryBorderColor: '#bb9af7',
-      lineColor: '#bb9af7',
-      background: '#1a1b26',
+      primaryColor: '#EFF7F8',
+      primaryTextColor: '#1A1A18',
+      primaryBorderColor: '#2D8A9A',
+      lineColor: '#7AAAB8',
+      background: '#FAF8F5',
       fontSize: '13px'
     }
   });
+
   function renderMermaidIn(id) {
     const body = document.getElementById(`body-${id}`);
     if (!body) return;
@@ -715,11 +1138,16 @@ flowchart LR
   window.addEventListener('DOMContentLoaded', () => {
     SECTIONS.forEach(s => {
       const saved = JSON.parse(localStorage.getItem(`${PROPOSAL_ID}_fb_${s}`) || '{}');
-      if (saved.comment) document.getElementById(`comment-${s}`).value = saved.comment;
+      if (saved.comment) {
+        const ta = document.getElementById(`comment-${s}`);
+        if (ta) ta.value = saved.comment;
+      }
       if (saved.status) {
-        const sectionEl = document.getElementById(`comment-${s}`).closest('.section-body');
-        const btn = sectionEl.querySelector(`.status-btn[onclick*="${saved.status}"]`);
-        if (btn) btn.classList.add(`active-${saved.status}`);
+        const body = document.getElementById(`body-${s}`);
+        if (body) {
+          const btn = body.querySelector(`.verdict-btn[onclick*="${saved.status}"]`);
+          if (btn) btn.classList.add(`active-${saved.status}`);
+        }
       }
     });
     toggleSection('abstract');
@@ -728,11 +1156,9 @@ flowchart LR
   function toggleSection(id) {
     const body = document.getElementById(`body-${id}`);
     const chev = document.getElementById(`chev-${id}`);
-    const header = body.previousElementSibling;
     const isOpen = body.classList.contains('open');
     body.classList.toggle('open', !isOpen);
     chev.classList.toggle('open', !isOpen);
-    header.classList.toggle('open', !isOpen);
     if (!isOpen) renderMermaidIn(id);
   }
 
@@ -740,31 +1166,32 @@ flowchart LR
     SECTIONS.forEach(s => {
       const body = document.getElementById(`body-${s}`);
       const chev = document.getElementById(`chev-${s}`);
-      body.classList.add('open');
-      chev.classList.add('open');
-      body.previousElementSibling.classList.add('open');
-      renderMermaidIn(s);
+      if (body && !body.classList.contains('open')) {
+        body.classList.add('open');
+        if (chev) chev.classList.add('open');
+        renderMermaidIn(s);
+      }
     });
   }
 
   function setStatus(section, status, btn) {
-    const sectionBody = document.getElementById(`body-${section}`);
-    sectionBody.querySelectorAll('.status-btn').forEach(b => b.className = 'status-btn');
+    const body = document.getElementById(`body-${section}`);
+    body.querySelectorAll('.verdict-btn').forEach(b => b.className = 'verdict-btn');
     btn.classList.add(`active-${status}`);
     saveFeedback(section);
   }
 
   function saveFeedback(section) {
-    const sectionBody = document.getElementById(`body-${section}`);
-    const activeBtn = sectionBody.querySelector('.status-btn[class*="active-"]');
+    const body = document.getElementById(`body-${section}`);
+    const activeBtn = body.querySelector('.verdict-btn[class*="active-"]');
     const status = activeBtn ? activeBtn.className.match(/active-(\w+)/)?.[1] : null;
-    const comment = document.getElementById(`comment-${section}`).value;
+    const ta = document.getElementById(`comment-${section}`);
+    const comment = ta ? ta.value : '';
     localStorage.setItem(`${PROPOSAL_ID}_fb_${section}`, JSON.stringify({
       comment, status, timestamp: new Date().toISOString()
     }));
-    const indicator = document.getElementById(`saved-${section}`);
-    indicator.style.display = 'block';
-    setTimeout(() => indicator.style.display = 'none', 1500);
+    const ind = document.getElementById(`saved-${section}`);
+    if (ind) { ind.style.display = 'block'; setTimeout(() => ind.style.display = 'none', 1600); }
   }
 
   function exportJSON() {
@@ -774,130 +1201,22 @@ flowchart LR
       const saved = JSON.parse(localStorage.getItem(`${PROPOSAL_ID}_fb_${s}`) || '{}');
       sections[s] = { comment: saved.comment || '', status: saved.status || null, timestamp: saved.timestamp || null };
     });
-    const output = { proposal: PROPOSAL_ID, exported_at: new Date().toISOString(), reviewer, sections };
-    const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
+    const out = { proposal: PROPOSAL_ID, exported_at: new Date().toISOString(), reviewer, sections };
     const a = Object.assign(document.createElement('a'), {
-      href: URL.createObjectURL(blob),
+      href: URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' })),
       download: `feedback_${PROPOSAL_ID}_${Date.now()}.json`
     });
-    a.click();
-    URL.revokeObjectURL(a.href);
+    a.click(); URL.revokeObjectURL(a.href);
   }
 
   function copyMarkdown() {
-    const md = `# RetinaAge India: Retinal Age Gap as Scalable Dementia Biomarker for Indian Populations
-**IISc AI Challenge for Healthy Brain Aging 2026 · Proposal 2 of 2**
-
-**Team:** Sanjay (Lead) · Abhishek (ML Architect) · Taruna (Research/Clinical Bridge) · Apsara (Research/ML)
-**Deadline:** May 20, 2026
-
----
-
-## Abstract
-
-Retinal fundus photography offers a non-invasive, sub-5-minute window into brain aging. Zhu et al. (2021, UK Biobank, n≈33,000) demonstrated that elevated Retinal Age Gap (RAG = AI-predicted retinal age minus chronological age) is prospectively associated with incident dementia (HR ≈1.25–1.31 per year). No RAG-dementia study has been conducted in Indian populations. Existing models face systematic calibration bias for Indian eyes due to higher retinal pigment epithelium melanin.
-
-We propose **RetinaAge India**: adapt a pre-trained retinal age model to Indian retinal characteristics (SANSCOG retinal imaging + SEED dataset), compute calibrated RAG for SANSCOG participants with CDR-staged cognitive status, quantify the RAG-dementia association with T2D/HTN confounder adjustment, and propose dual-use of India's 10,000+ deployed DR screening cameras for dementia risk stratification.
-
-**Primary novelty:** First RAG-dementia study in Indian subjects. First Indian-population retinal age calibration model.
-
----
-
-## Problem Statement
-
-Three crises motivate this work:
-1. **Dementia detection gap:** 8.8M Indians with dementia, 80% undiagnosed; PET/CSF inaccessible
-2. **Fundus infrastructure underutilised:** 10,000+ DR screening cameras idle between cycles; zero new hardware needed for dual-use
-3. **Evidence gap:** UK Biobank RAG model has Indian pigmentation calibration bias; cannot be applied without recalibration
-
-Mechanistic basis (5 pathways): embryological (retina = CNS tissue), amyloid-beta deposition (same APP/BACE1 pathway), trans-synaptic neurodegeneration, shared vascular pathology, neuroinflammation.
-
----
-
-## AI Approach (5 Stages)
-
-1. **Base model:** Pre-trained ResNet-50/EfficientNet-B3 (SEED dataset; multi-ethnic Asian)
-2. **Domain adaptation:** Transfer learning fine-tune on SANSCOG Indian retinal images; measure MAE calibration shift
-3. **Confounder adjustment:** Regress T2D, HTN, DR severity from RAG → Adjusted RAG
-4. **Dementia association:** Logistic regression (cross-sectional) + Cox hazard (longitudinal if available); ΔC-statistic vs. base model
-5. **Risk output:** Low/Medium/High RAG tier → community eye camp → if elevated → RUDAS cognitive screen → PHC referral
-
-**Integration with ScreenBrain (Proposal 1):** RetinaAge = community triage layer; ScreenBrain = confirmatory cognitive layer. Two-stage India-native pathway.
-
----
-
-## Data Strategy
-
-| Dataset | Role | Access |
-|---------|------|--------|
-| SANSCOG Retinal Imaging | Primary: domain adaptation + dementia association | CBR-controlled (access assumed) |
-| SEED (NUS Singapore) | Transfer learning base (multi-ethnic Asian, age-labeled) | Accessible |
-| SANSCOG Longitudinal | Cox hazard model (if multi-wave retinal data available) | CBR-controlled (contingent) |
-| LASI-DAD | External cognitive anchor | Public |
-
-⚠ SANSCOG retinal imaging scope must be confirmed with CBR before methodology finalisation.
-
----
-
-## Hypotheses & Evaluation
-
-- **H1:** Indian-adapted model MAE <4 years vs. UK Biobank model MAE >6 years on SANSCOG (calibration improvement)
-- **H2:** Adjusted RAG >5 years → OR >1.5 for MCI/dementia in SANSCOG (p<0.05)
-- **H3:** ΔC-statistic >0.03 when RAG added to age + T2D + HTN base model
-
-Acknowledged limitations: RAG not AD-specific; CDR ≠ biomarker-confirmed AD; T2D mediation could explain full association; image quality degradation in field conditions.
-
----
-
-## Team
-
-| Member | Role | Contribution |
-|--------|------|-------------|
-| Sanjay | Lead | CBR coordination, SEED partnership, stakeholder management |
-| Abhishek | ML Architect | Deep learning, transfer learning, domain adaptation, GPU training |
-| Taruna | Research / Clinical Bridge | DR camera pathway, Aravind/Remidio partnership, NPCB workflow, CDSCO |
-| Apsara | Research / ML | Literature, Indian pigmentation evidence, confounder analysis, T2D mediation |
-
-**⚠ Clinical Expert Gap:** Recruiting ophthalmology + neurology expertise at NPCB, Aravind, NIMHANS. Collaboration letter before interview stage.
-
----
-
-## Computing Resources
-
-- Transfer learning fine-tuning: IISc HPC 2× A100 GPU × 2 days
-- Statistical analysis: CPU, <30 min
-- Storage: ~25–30 GB (fundus images + SEED dataset)
-- All processing on IISc infrastructure
-
----
-
-## India-First Design
-
-- Indian RPE melanin calibration: only possible with Indian retinal data; uniquely India-native research
-- NPCB DR cameras dual-use: 10,000+ cameras, zero new hardware, policy-level change only
-- SANSCOG retinal + cognitive + metabolic: irreplaceable combination for this research question
-- High T2D prevalence confounding: India-specific analysis design not needed in Western RAG studies
-- Aravind/Remidio/Forus partnership: India-headquartered ecosystem for scale
-- DPDPA 2023 + CDSCO SaMD pathway; ABHA integration
-- Complementarity with ScreenBrain: community triage → confirmatory cognitive screen
-
----
-
-## Rubric Self-Assessment (Estimated)
-
-- A Research Quality: 20/22 (A2 max: specific undeniable gap)
-- B Challenge Alignment: 17/20 (B1 max: first-of-kind; B2 docked: camp not home-visit)
-- C Technical Feasibility: 12/15 (data scope uncertainty; GPU dependency)
-- D Scalability: 13/18 (DR camp reach < ASHA network)
-- E UX & Adoption: 8/13 (E1 docked: technician required)
-- F India-First: 9/12 (F1 max; F2 docked: no language component)
-- **Total: ~79/100**
-`;
+    const md = `# RetinaAge India: Retinal Age Gap as Scalable Dementia Biomarker for Indian Populations\n**IISc AI Challenge for Healthy Brain Aging 2026 · Proposal 2 of 2**\n\n**Team:** Sanjay (Lead) · Abhishek (ML Architect) · Taruna (Research/Clinical Bridge) · Apsara (Research/ML)\n**Deadline:** May 20, 2026\n\nSee proposal.md for full content.`;
     navigator.clipboard.writeText(md).then(() => {
-      const btn = event.target;
-      btn.textContent = '✓ Copied!';
-      setTimeout(() => btn.textContent = '📋 Copy Markdown', 2000);
-    }).catch(() => alert('Copy failed — please copy manually.'));
+      const btn = event.currentTarget;
+      const orig = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
   }
 </script>
 </body>
